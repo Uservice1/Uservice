@@ -43,6 +43,7 @@ html {
 #header .header {
     min-height: 8vh;
     background-color: rgba(255, 255, 255, 0.05);
+    z-index: 10;
 }
 
 #header .container {
@@ -50,6 +51,7 @@ html {
     height: auto;
     display: flex;
     background-color: transparent;
+    z-index: 100;
 }
 
 #header .nav .brand #logo {
@@ -163,6 +165,7 @@ html {
     width: 100%;
     border-radius: 50%;
     border: 2px solid white;
+    z-index: 100;
     animation: hamburger_pulse 1.5s ease infinite;
 }
 
@@ -198,6 +201,7 @@ html {
 
 #header .hamburger.active .bar::before {
     bottom: 0;
+    z-index: 100;
 }
 
 #header .hamburger.active .bar::after {
@@ -269,6 +273,31 @@ h4 {
     padding: 10px 10%;
 }
 
+.search-box{
+    margin-top: 60px;
+    display: inline;
+    position: relative;
+    flex-direction: row;
+}
+
+.search-box .btn{
+    display: inline-block; 
+    width: 48px; 
+    display: flex; 
+    background: none; 
+    border: none; 
+    padding: 0px ; 
+    margin: 0px;
+}
+
+.search{
+    display: flex;
+    flex: row;
+    position: relative;
+    justify-content: center;
+    align-items: center; 
+}
+
 
 /* ======================================================================================================= */
 
@@ -282,20 +311,69 @@ h4 {
 /* ====================== Main Page Slide ====================== */
 
 #main {
-    background-image: url("./images/2.jpg");
-    background-position: top center;
+    margin: 0;
+    left: 0;
+    top: 0;
+    overflow: hidden;
     position: relative;
+}
+
+#main .slider{
+    position: relative;
+    width: 400%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+    animation: 25s slider infinite;
+    height: 100vh;
+}
+
+#main .slide{
+    width: 100%;
+    background: black;
+    background-size: contain;
+    height: 100vh;
+}
+
+#main .slide img{
+    float: left;
+    opacity: .35;
+    height: 100%;
+    width: 100%;
+
+}
+
+#main .main-content{
+    padding: 60px;
+    top: 150px;
+    position: absolute;
+    z-index: 5;
+    padding: 30px 60px;
+    justify-content: flex-start;
+}
+
+#main .main-content button{
+    display: block;
+    flex-direction: row;
+    margin: 10px 10px;
+}
+
+#main .main-content .ctn{
+    margin-right: 20px;
+}
+
+#main img{
+    z-index: -5;
+    width: 20%;
+    height: 100%;
 }
 
 #main h1 {
     font-weight: 200;
     font-size: 28pt;
-    position: relative;
-    align-items: flex-start;
     color: transparent;
     animation: text_slider 2.5s ease forwards;
     animation-delay: 1s;
-    z-index: 1;
 }
 
 #main h1:nth-child(1) {
@@ -307,25 +385,6 @@ h4 {
     animation-delay: 2.5s;
     font-weight: 700;
     margin-bottom: 100px;
-}
-
-#main .main {
-    margin: 0;
-    padding: 10px 50px;
-    justify-content: flex-start;
-}
-
-#main::after {
-    content: '';
-    position: absolute;
-    align-content: fill;
-    height: 100%;
-    width: 100%;
-    top: 0%;
-    left: 0%;
-    background-color: black;
-    z-index: -1;
-    opacity: .67;
 }
 
 .ctn {
@@ -343,7 +402,7 @@ h4 {
     color: transparent;
     animation: text_slider 3s ease forwards;
     animation-delay: 3s;
-    z-index: 1;
+
     margin-top: 10px;
 }
 
@@ -353,6 +412,20 @@ h4 {
     background-color: #7e27cf;
 }
 
+@keyframes slider {
+    0%, 20%{
+        left: 0;
+    }
+    30%, 45%{ 
+        left: -100%;
+    }
+    55%, 70%{
+        left: -200%;
+    }
+    80%, 100%{
+        left: -300%;
+    }
+}
 
 /* ====================== Services ====================== */
 
@@ -1618,6 +1691,7 @@ select{
     position: relative;
     text-align: center;
     align-items: center;
+    display: inline-flexbox;
     line-height: 40px;
     width: 100%;
     text-decoration: none;
@@ -1796,6 +1870,8 @@ select{
 
 
 /* ====================== Key frames for transitions ====================== */
+
+
 
 @keyframes hamburger_pulse {
     0% {
