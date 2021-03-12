@@ -1,0 +1,40 @@
+CREATE TABLE Users(
+	userName varchar (10) NOT NULL,
+    email varchar (25) NOT NULL,
+    passcode varchar (25) NOT NULL    
+);
+
+
+CREATE TABLE user_skills (
+	id int PRIMARY KEY NOT NULL auto_increment,
+	userName varchar (25) NOT NULL,
+    skills varchar (25) NOT NULL,
+    FOREIGN KEY (userName) REFERENCES Users (userName)
+);
+
+
+CREATE TABLE projects (
+	projectId int NOT NULL AUTO_INCREMENT,
+	title varchar(100) NOT NULL,
+    projectDescription varchar(500) NOT NULL,
+    projectThumbnail varchar (200),
+    author varchar(20) NOT NULL,
+    PRIMARY KEY (projectId)
+);
+
+CREATE TABLE project_skills (
+	id int PRIMARY KEY NOT NULL auto_increment,
+	projectId int ,
+    skills varchar(30),
+    FOREIGN KEY (projectId) REFERENCES projects (projectId)
+);
+
+
+CREATE TABLE applicants (
+	id int NOT NULL AUTO_INCREMENT,
+    project INT NOT NULL,
+    applicant varchar(25) NOT NULL,
+	FOREIGN KEY (project) REFERENCES projects (projectId),
+    FOREIGN KEY (applicant) REFERENCES Users (userName),
+    PRIMARY KEY (id)
+);

@@ -1691,7 +1691,7 @@ select{
     position: relative;
     text-align: center;
     align-items: center;
-    display: inline-flexbox;
+    display: flex;
     line-height: 40px;
     width: 100%;
     text-decoration: none;
@@ -1699,8 +1699,8 @@ select{
     font-size: 15px;
     border: none;
     outline: none;
-    padding: 10px 10px;
-    margin-bottom: 60px;
+    padding: 5px 10px;
+    margin-bottom: 40px;
 }
 
 .search-box input{
@@ -1708,7 +1708,7 @@ select{
     background: none;
     border: none;
     outline: none;
-    height: 35px;
+    height: 40px;
     width: 50%;
     line-height: 1px;
     font-size: 10pt;
@@ -1721,10 +1721,11 @@ select{
 
 .search-box i{
     background: var(--color);
+    position:absolute;
     cursor: pointer;
-    left: -50px;
+    display: flex;
     z-index: 2;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border-radius: 50px;
     color: white;
     box-shadow: -5px 5px 10px #0000003a;

@@ -8,20 +8,31 @@ const nodemailer = require("nodemailer");
 
 
 app.use(bodyParser.json());
-
 const db = mysql.createConnection({
     host : "localhost",
     user : "root",
     password : "usman1234",
-    database : "Uservice"
+    database : "myDb",
+    multipleStatements: true
 })
 
 db.connect((err)=>{
     if(err)
         throw err
-    
+        
     console.log("Database successfully connected")
 })
+
+
+function Search(req,res, next){
+    var item = req.query.Search;
+    let query = "SELECT * FROM projects";
+
+    if(item = ''){
+        query = `SELECT * FROM project WHERE title = '`+ item+ `'`;
+    }
+
+}
 
 app.use(require('./routes/auth').router)
 app.use(require('./routes/admin').router)

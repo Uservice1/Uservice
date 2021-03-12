@@ -2,7 +2,11 @@ import {useState, useEffect, useContext} from 'react'
 import Navbar from './Navbar'
 import {UserContext} from '../App'
 import {Link} from 'react-router-dom'
-
+import Searchbar from './search'
+import one from '../styles/images/1.jpg'
+import two from '../styles/images/2.jpg'
+import three from '../styles/images/5.png'
+import four from '../styles/images/4.jpg'
 function Discover() {
 
     const [projects,setProjects] = useState([])
@@ -50,23 +54,40 @@ function Discover() {
     return (
         <div>
             <Navbar />
-
             <div class="categories">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <Link to="./Discover" class=""><img  src={one} alt=""/><h4>Photography</h4></Link>
+
+                </div>
+                <div class="col-3">
+                    <Link to="./Discover" class=""> <img src={two} alt=""/><h4>Graphic Design</h4></Link>
+                   
+                </div>
+                <div class="col-3">
+                    <Link to="./Discover" class=""><img  src={four} alt=""/><h4>Art & Illustrations</h4></Link>
+                    
+                </div>
+                <div class="col-3">
+                    <Link to="./Discover" class=""> <img src={three} alt=""/><h4>Development</h4></Link>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+    <div class="categories">
                 <div class="small-container">
                     <div class="row">
                         {projectList}
                    </div>
             
-                </div>
-    </div>
+                </div> 
+         </div>
 
-    <div class="line">
-
-    </div>
-
-    <div class="search-box">
-        <input type="text" placeholder="Search..." /><i class="fa fa-search"></i>
-    </div>
+    <Searchbar></Searchbar>  
 
     <div class="posts">
         <div class="small-container">

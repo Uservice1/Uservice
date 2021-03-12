@@ -1,7 +1,7 @@
 import react from 'react'
+
 import {Link} from 'react-router-dom'
 import '../styles/styles.css'
-import logo1 from '../styles/images/logo1.png'
 import photography from '../styles/images/photography.svg'
 import graphic from '../styles/images/graphic.svg'
 import art from '../styles/images/art.svg'
@@ -12,7 +12,7 @@ import three from '../styles/images/5.png'
 import four from '../styles/images/4.jpg'
 import profile from '../styles/images/profile.svg';
 import Navbar from './Navbar'
-
+import Searchbar from './search'
 
 function Home() {
   return (
@@ -27,10 +27,10 @@ function Home() {
                 <div class="main-content">
                     <h1>Get our best services with </h1>
                     <h1>Professionals </h1>
-                    <Link to="./discover.html" type="button" class="ctn"> Photographers</Link>          
-                    <Link to="./discover.html" type="button" class="ctn"> Art & Illustrations</Link>          
-                    <Link to="./discover.html" type="button" class="ctn"> Graphic Designer </Link>        
-                    <Link to="./discover.html" type="button" class="ctn"> Developer</Link>           
+                    <Link to="./Discover" type="button" class="ctn"> Photographers</Link>          
+                    <Link to="./Discover" type="button" class="ctn"> Art & Illustrations</Link>          
+                    <Link to="./Discover" type="button" class="ctn"> Graphic Designer </Link>        
+                    <Link to="./Discover" type="button" class="ctn"> Developer</Link>           
                 </div>
             </div>
             <div class="slide">
@@ -38,7 +38,7 @@ function Home() {
                 <div class="main-content">
                     <h1>Discover best Projects and </h1>
                     <h1>Portfolios </h1>
-                    <Link to="./discover.html" type="button" class="ctn"> Discover</Link>                     
+                    <Link to="./Discover" type="button" class="ctn"> Discover</Link>                     
                 </div>
             </div>
             <div class="slide">
@@ -46,7 +46,7 @@ function Home() {
                 <div class="main-content">
                     <h1>Meet the Skilled and </h1>
                     <h1> Creative</h1>
-                    <Link to="./discover.html" type="button" class="ctn"> Projects</Link>                    
+                    <Link to="./Discover" type="button" class="ctn"> Projects</Link>                    
                 </div>
             </div>
             <div class="slide">
@@ -54,40 +54,36 @@ function Home() {
                 <div class="main-content">
                     <h1>Get our best services with </h1>
                     <h1>Professionals </h1>   
-                    <Link to="./discover.html" type="button" class="ctn"> Photographers</Link>          
-                    <Link to="./discover.html" type="button" class="ctn"> Art & Illustrations</Link>          
-                    <Link to="./discover.html" type="button" class="ctn"> Graphic Designer </Link>        
-                    <Link to="./discover.html" type="button" class="ctn"> Developer</Link>         
+                    <Link to="./Discover" type="button" class="ctn"> Photographers</Link>          
+                    <Link to="./Discover" type="button" class="ctn"> Art & Illustrations</Link>          
+                    <Link to="./Discover" type="button" class="ctn"> Graphic Designer </Link>        
+                    <Link to="./Discover" type="button" class="ctn"> Developer</Link>         
                 </div>
 
             </div>
         </div>
     </section>
 
-    <div class="search-box">
-        <form action="#" method="POST" class="search">        
-            <input type="text" placeholder="Search..."/>
-            <button class="btn" ><i class="fa fa-search"></i></button>
-        </form>
-    </div>
+    <Searchbar></Searchbar>
+
     
     <div class="categories">
         <div class="small-container">
             <div class="row">
                 <div class="col-3">
-                    <Link to="./discover.html" class=""><img  src={one} alt=""/><h4>Photography</h4></Link>
+                    <Link to="./Discover" class=""><img  src={one} alt=""/><h4>Photography</h4></Link>
 
                 </div>
                 <div class="col-3">
-                    <Link to="./discover.html" class=""> <img src={two} alt=""/><h4>Graphic Design</h4></Link>
+                    <Link to="./Discover"class=""> <img src={two} alt=""/><h4>Graphic Design</h4></Link>
                    
                 </div>
                 <div class="col-3">
-                    <Link to="./discover.html" class=""><img  src={four} alt=""/><h4>Art & Illustrations</h4></Link>
+                    <Link to="./Discover" class=""><img  src={four} alt=""/><h4>Art & Illustrations</h4></Link>
                     
                 </div>
                 <div class="col-3">
-                    <Link to="./discover.html" class=""> <img src={three} alt=""/><h4>Development</h4></Link>
+                    <Link to="./Discover" class=""> <img src={three} alt=""/><h4>Development</h4></Link>
 
                 </div>
             </div>

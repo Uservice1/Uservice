@@ -65,8 +65,8 @@ const MyProfile = () =>{
                 </div>
                 <div class="profile-side">
                     <p class="user-bio">Lorem ipsum dolor sit amet consectetur, id ut voluptatibus illum dolores.</p>
-                    <input placeholder="Add Expertise.." onChange={(e)=>{setSkills(e.target.value)}}/>
-                    <button onClick={addExptertise}>Add</button>
+                    <input class="input-fields" placeholder="Add Expertise.." onChange={(e)=>{setSkills(e.target.value)}}/>
+                    <button class="ctn" onClick={addExptertise}>Add</button>
                 </div>
             </div>
            
@@ -116,6 +116,7 @@ const MyProfile = () =>{
                     </ul>
                 </div>
                 <div class="profile-body">
+
                     <div class="profile-projects tab">
                         <div class="project">
                             <div class="project-header">
@@ -156,15 +157,89 @@ const MyProfile = () =>{
                             </div>
                         </div>
                     </div>
+
                     <div class="profile-reviews tab">
-                        <h3>User Reviews</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eaque ipsam neque quae eveniet quaerat aliquam in molestias. Nobis corrupti velit sapiente quis facere. Quod harum officiis asperiores odio ipsa.</p>
+                    <div class="project">
+                            <div class="project-header">
+                                <div class="profile-img">
+                                    <img src={ProfilePic} alt="" class="profile-image" />
+                                </div>
+                                <div class="profile-nav-info">
+                                    <h2 class="username">{state?state.userName:"loading.."}</h2>
+                                    <div class="address-info">
+                                        <span class="state">Karachi,</span>
+                                        <span class="country">Pakistan</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-settings">
+                                <button class="ctn"> <i class="fa fa-bars"></i></button>
+                                <div class="options">
+                                    <a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
+                                    <a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="project-date">
+                                <span class="day">Sunday &nbsp;</span>
+                                <span class="date"> Oct 21, 2020</span>
+                            </div>
+                            <div class="project-post">
+
+                                <div class="project-img">
+                                    <img class="project-img" src={ProjectPic} alt="" width="400px" />
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Peace</h3>
+                                    <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique amet, voluptate saepe nostrum possimus tenetur optio provident corrupti</p>
+                              
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="profile-work tab">
-                        <h3>Work</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eaque ipsam neque quae eveniet quaerat aliquam in molestias. Nobis corrupti velit sapiente quis facere. Quod harum officiis asperiores odio ipsa.</p>
-                   
+                    <div class="project">
+                            <div class="project-header">
+                                <div class="profile-img">
+                                    <img src={ProfilePic} alt="" class="profile-image" />
+                                </div>
+                                <div class="profile-nav-info">
+                                    <h2 class="username">{state?state.userName:"loading.."}</h2>
+                                    <div class="address-info">
+                                        <span class="state">Karachi,</span>
+                                        <span class="country">Pakistan</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-settings">
+                                <button class="ctn"> <i class="fa fa-bars"></i></button>
+                                <div class="options">
+                                    <a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
+                                    <a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="project-date">
+                                <span class="day">Sunday &nbsp;</span>
+                                <span class="date"> Oct 21, 2020</span>
+                            </div>
+                            <div class="project-post">
+
+                                <div class="project-img">
+                                    <img class="project-img" src={ProjectPic} alt="" width="400px" />
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Peace</h3>
+                                    <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique amet, voluptate saepe nostrum possimus tenetur optio provident corrupti</p>
+                              
+                                </div>
+                            </div>
+                        </div>
                     </div>
+ 
                 </div>
             </div>
         </div>

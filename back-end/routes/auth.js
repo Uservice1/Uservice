@@ -24,7 +24,7 @@ const db = mysql.createConnection({
     host : "localhost",
     user : "root",
     password : "usman1234",
-    database : "Uservice"
+    database : "myDB"
 })
 
 
@@ -74,7 +74,7 @@ router.post('/signup',(req,res)=>{
     {
         let SQL = "SELECT * FROM Users WHERE email = "+ mysql.escape(req.body.email)
         db.query(SQL,(err,result,feilds)=>{
-            if(result[0])
+            if(!result[0])
             {   
                 res.json({error:"User Already Exists"})
             }
@@ -84,9 +84,9 @@ router.post('/signup',(req,res)=>{
                 bcrypt.hash(req.body.password,12)
                 .then((password)=>{
                     let info = {
-                        from: '"UserVice" <uservice.authentication@gmail.com>', // sender address
-                        to: req.body.email, // list of receivers
-                        subject: "Email confirmation", // Subject line
+                        from: '"UserVice" <uservice.authentication@gmail.com>',  // sender address
+                        to: req.body.email,                                      // list of receivers
+                        subject: "Email confirmation!",                           // Subject line
                         text:"Click on the link to confirm your Email: "+url+"?username="+req.body.userName+"&email="+req.body.email+"&passcode="+password, // plain text body
                         
                       }
@@ -116,8 +116,11 @@ router.get('/authenticateemail',(req,res)=>{
 
     let SQL1 = "SELECT * FROM Users WHERE email = "+ mysql.escape(req.query.email)
     db.query(SQL1,(error,result,feilds)=>{
+        console.log('Inside db.query');
         if(error)
-        return error
+        {
+        console.log(error)
+        return error}
         else if(result[0])
         {
             console.log("if con\n",result)
@@ -125,6 +128,7 @@ router.get('/authenticateemail',(req,res)=>{
         }
         else
         {
+            console.log('else con');
             let SQL = "INSERT INTO Users SET ?";
             db.query(SQL,user,(err,result)=>{
             if(err)
