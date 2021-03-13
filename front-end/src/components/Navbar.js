@@ -36,7 +36,7 @@ const Navbar = () =>{
             [
                 <li><a href="/discover" data-after="Discover" id="discover">Discover</a></li>,
                 <li><Link to="/contact">Contact Us</Link></li>,
-                <li><Link to ="/profile"  style={{ justifyContent:"center" , textAlign:"center" , alignContent:"center", alignItems:"center", margin:"0px", top:"0px"}}><img src={profilepic} style={{ width: "24px", padding:"0px", marginBottom:"0px", textAlign:"center" , alignContent:"center", alignItems:"center",}}></img>&nbsp; {state?state.userName:"Loading.."}</Link></li>,
+                <li><Link to ="/myprofile"  style={{ justifyContent:"center" , textAlign:"center" , alignContent:"center", alignItems:"center", margin:"0px", top:"0px"}}><img src={profilepic} style={{ width: "24px", padding:"0px", marginBottom:"0px", textAlign:"center" , alignContent:"center", alignItems:"center",}}></img>&nbsp; {state?state.userName:"Loading.."}</Link></li>,
                 <li onClick={handleLogout}><Link to>Logout</Link></li>
     
 
