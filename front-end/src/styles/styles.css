@@ -273,31 +273,6 @@ h4 {
     padding: 10px 10%;
 }
 
-.search-box{
-    margin-top: 60px;
-    display: inline;
-    position: relative;
-    flex-direction: row;
-}
-
-.search-box .btn{
-    display: inline-block; 
-    width: 48px; 
-    display: flex; 
-    background: none; 
-    border: none; 
-    padding: 0px ; 
-    margin: 0px;
-}
-
-.search{
-    display: flex;
-    flex: row;
-    position: relative;
-    justify-content: center;
-    align-items: center; 
-}
-
 
 /* ======================================================================================================= */
 
@@ -325,16 +300,14 @@ h4 {
     overflow: hidden;
     flex-direction: row;
     animation: 25s slider infinite;
-    height: 100vh;
+    height: 90vh;
 }
-
 #main .slide{
     width: 100%;
     background: black;
     background-size: contain;
-    height: 100vh;
+    height: 90vh;
 }
-
 #main .slide img{
     float: left;
     opacity: .35;
@@ -342,24 +315,18 @@ h4 {
     width: 100%;
 
 }
-
 #main .main-content{
-    padding: 60px;
     top: 150px;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     z-index: 5;
     padding: 30px 60px;
     justify-content: flex-start;
 }
 
-#main .main-content button{
+#main .main-content .buttons{
     display: block;
-    flex-direction: row;
-    margin: 10px 10px;
-}
-
-#main .main-content .ctn{
-    margin-right: 20px;
 }
 
 #main img{
@@ -818,6 +785,7 @@ select{
 
 .input-fields input {
     background-color: none;
+    min-width: 220px;
     background: none;
     border: none;
     outline: none;
@@ -1691,7 +1659,6 @@ select{
     position: relative;
     text-align: center;
     align-items: center;
-    display: flex;
     line-height: 40px;
     width: 100%;
     text-decoration: none;
@@ -1699,8 +1666,8 @@ select{
     font-size: 15px;
     border: none;
     outline: none;
-    padding: 5px 10px;
-    margin-bottom: 40px;
+    padding: 10px 10px;
+    margin-bottom: 60px;
 }
 
 .search-box input{
@@ -1708,7 +1675,7 @@ select{
     background: none;
     border: none;
     outline: none;
-    height: 40px;
+    height: 35px;
     width: 50%;
     line-height: 1px;
     font-size: 10pt;
@@ -1721,11 +1688,10 @@ select{
 
 .search-box i{
     background: var(--color);
-    position:absolute;
     cursor: pointer;
-    display: flex;
+    left: -50px;
     z-index: 2;
-    padding: 8px 20px;
+    padding: 10px 20px;
     border-radius: 50px;
     color: white;
     box-shadow: -5px 5px 10px #0000003a;
@@ -1867,7 +1833,84 @@ select{
     padding: 0px 20px;
 }
 
+#project-creation{
+    position: relative; 
+    height:100%; 
+    padding: 20px 50px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 70px 40px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
 
+#project-creation .create-posts{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    flex: 1;
+}
+
+#project-creation .create-posts .upper-side{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#project-creation .create-posts .project-info .input-fields{
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    float: left;
+
+    width: 100%;
+}
+
+#project-creation .create-posts .project-info input, .project-info textarea{
+    width: 360px;
+}
+
+#project-creation .create-posts .lower-side{
+    margin-top: 20px;
+    padding: 10px 50px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#project-creation .create-posts .lower-side .check-boxes{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    font-size: 10pt;
+    font-weight: 500;
+    justify-content: space-between;
+    color: var(--color);
+}
+
+#project-creation .create-posts .lower-side .check-boxes .check{
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#project-creation .create-posts .btn{
+    max-width: 300px;
+    width: 100%;
+    position: relative;
+    float: right;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;
+    margin-top: 0px;
+}
 
 
 /* ====================== Key frames for transitions ====================== */

@@ -96,7 +96,76 @@ function CreateProject() {
     return (
         <div>
             <Navbar />
-            <h2>Create Project</h2>
+            <section id="project-creation" >
+        <h2>Create Project</h2>
+        <br /><br/>
+        <div class="create-posts">
+
+            <div class="upper-side">
+
+                <div class="project-info">
+                    <form>
+                        <div class="input-fields">
+                            <i class="fa fa-header"></i>
+                            <input placeholder="Title" type="text"  onChange={(e)=>{setTitle(e.target.value)}} />
+                        </div>
+                        <div class="input-fields">
+                            <i class="fas fas fa-pen"></i>
+                            <textarea placeholder="Description" type="text" onChange={(e)=>{setDescription(e.target.value)}} ></textarea> 
+                        </div>
+                    </form>
+                </div>
+
+                <div class="project-post">
+                    <form class="post-img">
+                        <label for="project-img" class="btn"><i class="fa fa-upload"></i>Upload Image</label>
+                        <input id="project-img" class="project-img" type="file" placeholder="image" style={{visibility: "hidden;", display: "none;"}} onChange={(e)=>{uploadImage(e,e.target.files)}} /> 
+                    </form>
+                </div>
+            </div>
+ 
+            <div class="lower-side">
+                <h4>Tags</h4>
+                <form onSubmit = {(e)=>{submitCategories(e)}}>
+                    <div class="check-boxes">
+                    <div class="check">
+                        <input class="check-box" type="checkbox" value="web development" onChange = {(e)=>{addCategories(e)}} />
+                        <label for="vehicle1"> Web Development</label><br/>
+                    </div>
+    
+                    <div class="check">
+                        <input class="check-box" type="checkbox" value="content creating" onChange = {(e)=>{addCategories(e)}} />
+                        <label for="vehicle2"> Content Creating</label><br/>
+                    </div>    
+    
+     
+                    <div class="check">
+                        <input class="check-box" type="checkbox" value="graphic design" onChange = {(e)=>{addCategories(e)}} />
+                        <label for="vehicle3"> Graphic Design</label><br/>
+                    </div>
+    
+        
+                    <div class="check">
+                        <input class="check-box" type="checkbox" value="user interface" onChange = {(e)=>{addCategories(e)}} />
+                        <label for="vehicle3"> UI/UX</label><br/>
+                    </div>
+    
+                    <div class="check">                
+                        <input class="check-box" type="checkbox"  value="photography" onChange = {(e)=>{addCategories(e)}} />
+                        <label for="vehicle3"> Photography</label><br/><br/>
+                    </div>
+                    </div>
+
+                </form> 
+            </div>
+    
+            <button class="btn" onClick={publishProject}>Publish Project</button>
+    
+        </div>
+
+    </section>
+            
+{/*             <h2>Create Project</h2>
             <br /><br/>
             <form>
                 <input placeholder="Title" onChange={(e)=>{setTitle(e.target.value)}}/>
@@ -129,7 +198,7 @@ function CreateProject() {
             </form>
 
             <button onClick={publishProject}>Publish Project</button>
-
+ */}
         </div>
     )
 }
