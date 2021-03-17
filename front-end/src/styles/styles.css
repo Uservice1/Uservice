@@ -254,7 +254,7 @@ h4 {
 }
 
 .container {
-    min-height: 100vh;
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -2016,7 +2016,79 @@ select{
     margin-top: 0px;
 }
 
+.Modal{
+    z-index: 5;
+    position: absolute;
+    top: 150px;
+    left: 175px;
+    width: 75%;
+    display: flex;
+    padding: 20px 20px;
+    background-color:white;
+    box-shadow: var(--shadow);
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    outline: none;
+    text-decoration: none;
+    overflow: visible;
+}
 
+.close{
+    float: right;
+    color: var(--color);
+    outline: none;
+    border: none;
+    background-color: none;
+    width: 24px;
+    height: fit-content;
+}
+
+.Modal span{
+    width: 14px;
+    height: 24px;
+    font-size: 24px;
+    font-weight: 500;
+    outline: none;
+    border:none;
+    background-color: none;
+}
+#contained-modal-title-venter{
+    color: #7e27cf;
+    font-size: 16pt;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px;
+}
+.container-box{
+    margin-top: 20px;
+    position: relative;
+    text-align: left;
+    align-items: right;
+    padding: 10px;
+    background-color: #e2e2e29a;
+    box-shadow: var(--radius);
+    display: flex;
+    flex: 1;
+    animation: all 1s ease-in-out;
+}
+
+.Rows{
+    text-align: left;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+}
+.Cols{
+    text-align: left;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
 /* ====================== Key frames for transitions ====================== */
 
 

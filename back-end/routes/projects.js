@@ -7,9 +7,9 @@ const db = mysql.createConnection({
     host : "localhost",
     user : "root",
     password : "usman1234",
-    database : "Uservice"
+    database : "myDb",
+    multipleStatements: true
 })
-
 
 router.post('/publishproject',(requireLogin),(req,res)=>{
     console.log("PublishProjectAPI: ",req.body)

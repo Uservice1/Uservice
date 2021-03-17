@@ -6,9 +6,9 @@ const db = mysql.createConnection({
     host : "localhost",
     user : "root",
     password : "usman1234",
-    database : "Uservice"
+    database : "myDb",
+    multipleStatements: true
 })
-
 router.post('/contact',(req,res)=>{
     console.log('contactApi',req.body)
     const message=req.body

@@ -87,6 +87,9 @@ function App() {
         <Discover />
       </Route>
       
+      <Route path='/project'>
+        <Project />
+      </Route>
   
       </div>
 

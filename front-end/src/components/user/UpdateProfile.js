@@ -16,10 +16,7 @@ function UpdateProfile() {
                         </div>
                             <label for="profile-img" class="btn"><i class="fa fa-upload"></i>Upload picture</label>
                             <input class="profile-img" type="file" style={{visibility: "hidden", display: "none"}} id="profile-img" />
-                            
-
                     </div>
-                
                     <div class="right_side">
                         <div class="input-fields">
                             <i class="fas fa-user"></i>
@@ -298,7 +295,6 @@ function UpdateProfile() {
                                 <p for="check-box">&nbsp;I accept that all infomation is valid and legal in term of Privacy Policy of Uservice.</p>
                             </div>
                     </div>
-
                 </div>
                 <button class="btn" type="button" value="submit">Save changes</button>
             </form>
