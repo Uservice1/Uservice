@@ -129,11 +129,7 @@ const MyProfile = () =>{
                     <span class="alert-message">1</span>
                 </div>
                 <div class="settings">
-<<<<<<< HEAD
                     <Link to="/UpdateProfile"><i class="fa fa-cog"></i></Link>
-=======
-                    <a href="/updateprofile"><i class="fa fa-cog"></i></a>
->>>>>>> 9980aafce3327d60c3edbd3aec18742f62bd3bc4
                 </div>
             </div>
 
