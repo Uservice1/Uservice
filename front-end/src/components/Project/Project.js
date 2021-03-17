@@ -1,11 +1,15 @@
-import {useEffect,useState} from 'react'
+import {useEffect,useState,useContext} from 'react'
 import ProfilePic from '../../styles/images/profile.svg'
 import Pic1 from '../../styles/images/2.jpg'
 import {useParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import {UserContext} from '../../App'
+import Navbar from '../Navbar'
 
 
 function Project() {
+	const {state,dispatch} = useContext(UserContext)
+
 
 	const [projectInfo, setprojectInfo] = useState({})
 	const [projectReview,setProjectReview] = useState(['Great Project'])
@@ -45,14 +49,10 @@ function Project() {
 
     return (
         <div>
+
+			<Navbar />
             
             <section id="project" style={{width: "100%", height: "100%", padding: "70px 10px"}}>
-		<div class="search-box">
-			<form action="#" method="POST" class="search" style={{display: "flex", flexDirection: "row", position: "relative", justifyContent: "center", alignItems: "center"}}>        
-				<input type="text" placeholder="Search..." />
-				<button class="btn" style={{display: "inlineBlock", width: "48px", display: "flex", background: "none", border: "none", padding: "0px 0px", margin: "0px 0px"}}><i class="fa fa-search"></i></button>
-			</form>
-		</div>
 
 		<div class="project">
 			<div class="project-header">
