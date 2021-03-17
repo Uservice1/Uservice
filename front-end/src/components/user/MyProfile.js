@@ -3,14 +3,14 @@ import Navbar from '../Navbar'
 import profilePic from '../../styles/images/profile.svg'
 import {UserContext} from '../../App'
 import {Link} from 'react-router-dom'
-import ProfilePic from '../../styles/images/profile.svg'
-import ProjectPic from '../../styles/images/2.jpg'
 
 const MyProfile = () =>{
 
     const {state,dispatch} = useContext(UserContext)
 
     const [skills,setSkills] = useState('')
+
+    const [myProjects,setMyProjects] = useState([{}])
 
     const addExptertise = (e)=>{
 
@@ -30,9 +30,6 @@ const MyProfile = () =>{
         })
     }
     useEffect(()=>{
-        if(state)
-        console.log("profileState: ",state)
-
         fetch('/myprofile',{
             method:"get",
             headers:{
@@ -45,6 +42,62 @@ const MyProfile = () =>{
         })
     },[])
 
+    useEffect(()=>{
+        fetch('/myprojects',{
+            method:"get",
+            headers:{
+                "Authorization": "Bearer "+localStorage.getItem("jwt"),
+                "Content-Type":"application/json"
+			}
+        })
+        .then((res)=>res.json())
+        .then(({projects})=>{
+            console.log('projects', projects)
+            setMyProjects(projects)
+        })
+},[]);
+
+    const projectList = myProjects.map((project)=>{
+        return(
+            <div class="project">
+                            <div class="project-header">
+                                <div class="profile-img">
+                                    <img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" />
+                                </div>
+                                <div class="profile-nav-info">
+                                    <h2 class="username">{state?state.userName:"loading.."}</h2>
+                                    <div class="address-info">
+                                        <span class="state">Karachi,</span>
+                                        <span class="country">Pakistan</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-settings">
+                                <button class="ctn"> <i class="fa fa-bars"></i></button>
+                                <div class="options">
+                                    <a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
+                                    <a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="project-date">
+                                <span class="date">{project.date_published ? project.date_published : null}</span>
+                            </div>
+                            <div class="project-post">
+
+                                <div class="project-img">
+                                    <img class="project-img" src={project.projectThumbnail} alt="" width="400px" />
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">{project.title}</h3>
+                                    <p class="project-description">{project.projectDescription}</p>
+                                </div>
+                            </div>
+                        </div>
+        )
+    })
+
     return(
         <div>
 
@@ -54,7 +107,7 @@ const MyProfile = () =>{
             <div class="profile-header">
             
             <div class="profile-img">
-                <img src={ProfilePic} alt="" class="profile-image" width="240" />
+                <img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" width="240" />
             </div>
 
             <div class="profile-nav-info">
@@ -76,7 +129,7 @@ const MyProfile = () =>{
                     <span class="alert-message">1</span>
                 </div>
                 <div class="settings">
-                    <a href="./settings.html"><i class="fa fa-cog"></i></a>
+                    <a href="/updateprofile"><i class="fa fa-cog"></i></a>
                 </div>
             </div>
 
@@ -116,130 +169,9 @@ const MyProfile = () =>{
                     </ul>
                 </div>
                 <div class="profile-body">
-
                     <div class="profile-projects tab">
-                        <div class="project">
-                            <div class="project-header">
-                                <div class="profile-img">
-                                    <img src={ProfilePic} alt="" class="profile-image" />
-                                </div>
-                                <div class="profile-nav-info">
-                                    <h2 class="username">{state?state.userName:"loading.."}</h2>
-                                    <div class="address-info">
-                                        <span class="state">Karachi,</span>
-                                        <span class="country">Pakistan</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-settings">
-                                <button class="ctn"> <i class="fa fa-bars"></i></button>
-                                <div class="options">
-                                    <a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
-                                    <a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
-                                </div>
-                                
-                                
-                            </div>
-                            <div class="project-date">
-                                <span class="day">Sunday &nbsp;</span>
-                                <span class="date"> Oct 21, 2020</span>
-                            </div>
-                            <div class="project-post">
-
-                                <div class="project-img">
-                                    <img class="project-img" src={ProjectPic} alt="" width="400px" />
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">Peace</h3>
-                                    <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique amet, voluptate saepe nostrum possimus tenetur optio provident corrupti</p>
-                              
-                                </div>
-                            </div>
-                        </div>
+                        {projectList}
                     </div>
-
-                    <div class="profile-reviews tab">
-                    <div class="project">
-                            <div class="project-header">
-                                <div class="profile-img">
-                                    <img src={ProfilePic} alt="" class="profile-image" />
-                                </div>
-                                <div class="profile-nav-info">
-                                    <h2 class="username">{state?state.userName:"loading.."}</h2>
-                                    <div class="address-info">
-                                        <span class="state">Karachi,</span>
-                                        <span class="country">Pakistan</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-settings">
-                                <button class="ctn"> <i class="fa fa-bars"></i></button>
-                                <div class="options">
-                                    <a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
-                                    <a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
-                                </div>
-                                
-                                
-                            </div>
-                            <div class="project-date">
-                                <span class="day">Sunday &nbsp;</span>
-                                <span class="date"> Oct 21, 2020</span>
-                            </div>
-                            <div class="project-post">
-
-                                <div class="project-img">
-                                    <img class="project-img" src={ProjectPic} alt="" width="400px" />
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">Peace</h3>
-                                    <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique amet, voluptate saepe nostrum possimus tenetur optio provident corrupti</p>
-                              
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="profile-work tab">
-                    <div class="project">
-                            <div class="project-header">
-                                <div class="profile-img">
-                                    <img src={ProfilePic} alt="" class="profile-image" />
-                                </div>
-                                <div class="profile-nav-info">
-                                    <h2 class="username">{state?state.userName:"loading.."}</h2>
-                                    <div class="address-info">
-                                        <span class="state">Karachi,</span>
-                                        <span class="country">Pakistan</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="project-settings">
-                                <button class="ctn"> <i class="fa fa-bars"></i></button>
-                                <div class="options">
-                                    <a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
-                                    <a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
-                                </div>
-                                
-                                
-                            </div>
-                            <div class="project-date">
-                                <span class="day">Sunday &nbsp;</span>
-                                <span class="date"> Oct 21, 2020</span>
-                            </div>
-                            <div class="project-post">
-
-                                <div class="project-img">
-                                    <img class="project-img" src={ProjectPic} alt="" width="400px" />
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">Peace</h3>
-                                    <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique amet, voluptate saepe nostrum possimus tenetur optio provident corrupti</p>
-                              
-                                </div>
-                            </div>
-                        </div>
-                    </div>
- 
                 </div>
             </div>
         </div>

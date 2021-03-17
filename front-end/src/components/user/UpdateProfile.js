@@ -1,21 +1,77 @@
 import  '../../styles/styles.css'
 import Navbar from '../Navbar'
 import ProfilePic from '../../styles/images/profile.svg'
+import {useState,useEffect,useContext} from 'react';
+import {UserContext} from '../../App'
 
 function UpdateProfile() {
+
+    const {state,dispatch} = useContext(UserContext)
+
+    const [image,setImage] = useState('')
+    const [imageURL,setImageURL] = useState('')
+
+    const uploadImage = (e,file)=>{
+        console.log("UPLOAD IMAGE")
+        e.preventDefault()
+        setImage(file[0])
+    }
+
+    useEffect(() => {
+        if(image)
+        {
+        const data = new FormData()
+        data.append('file', image)
+        data.append('upload_preset','Uservice')
+        data.append('cloud-name','dkzqxbqor')
+        
+        fetch('https://api.cloudinary.com/v1_1/dkzqxbqor/image/upload',{
+            method:"post",
+            body:data
+            }
+            )
+            .then((res)=>res.json())
+            .then((data)=>{
+            console.log(data.url)
+            setImageURL(data.url)
+            dispatch({type:"ADD_USER_PROFILE_PIC",payload:data.url})
+        })
+        .catch((err)=>{
+            console.log("error: ",err)
+        })
+        }
+        
+    }, [image])
+
+    useEffect(()=>{
+        if(imageURL)
+        {
+            fetch('/uploadprofilepic',{
+                method:"post",
+                headers: {
+                    "Authorization": "Bearer "+localStorage.getItem("jwt"),
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    profilePicture:imageURL
+                })
+            })
+        }
+    },[imageURL])
+
     return (
         <div>
             <Navbar/>
-            <section id="settings-form">
+        <section id="settings-form">
             <h2 class="title">Update Profile</h2>
             <form>
                 <div class="setting-inputs">
                     <div class="left_side">
                         <div class="profile-img">
-                            <img src={ProfilePic} alt="" class="profile-image" width="240" />
+                            <img src={state&&state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" width="240" />
                         </div>
                             <label for="profile-img" class="btn"><i class="fa fa-upload"></i>Upload picture</label>
-                            <input class="profile-img" type="file" style={{visibility: "hidden", display: "none"}} id="profile-img" />
+                            <input class="profile-img" type="file" style={{visibility: "hidden", display: "none"}} id="profile-img" onChange={ (e)=>{uploadImage(e,e.target.files)} } />
                             
 
                     </div>
@@ -302,7 +358,7 @@ function UpdateProfile() {
                 </div>
                 <button class="btn" type="button" value="submit">Save changes</button>
             </form>
-    </section>
+        </section>
         </div>
     )
 }
