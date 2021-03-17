@@ -3,14 +3,15 @@ import ProfilePic from '../../styles/images/profile.svg'
 import Pic1 from '../../styles/images/2.jpg'
 import {useParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
-
+import Applicants from '../applicants';
+import Navbar from '../Navbar'
 
 function Project() {
 
 	const [projectInfo, setprojectInfo] = useState({})
 	const [projectReview,setProjectReview] = useState(['Great Project'])
 	const {id} = useParams();
-
+	const [modalShow, setModalShow] = useState(false);
 	const addReview = (e)=>{
 		e.preventDefault()
 		projectReview.push(e.target.value)
@@ -45,16 +46,11 @@ function Project() {
 
     return (
         <div>
-            
-            <section id="project" style={{width: "100%", height: "100%", padding: "70px 10px"}}>
-		<div class="search-box">
-			<form action="#" method="POST" class="search" style={{display: "flex", flexDirection: "row", position: "relative", justifyContent: "center", alignItems: "center"}}>        
-				<input type="text" placeholder="Search..." />
-				<button class="btn" style={{display: "inlineBlock", width: "48px", display: "flex", background: "none", border: "none", padding: "0px 0px", margin: "0px 0px"}}><i class="fa fa-search"></i></button>
-			</form>
-		</div>
+         <Navbar></Navbar>   
+    <section id="project" style={{width: "100%", height: "100%", padding: "70px 10px"}}>
 
-		<div class="project">
+
+		<div class="project"style={{width: "100%", height: "100%", minHeight:"350px"}}>
 			<div class="project-header">
 				<div class="profile-img">
 					<img src={ProfilePic} alt="" class="profile-image" />
@@ -68,6 +64,7 @@ function Project() {
 				</div>
 			</div>
 			<div class="project-settings">
+
 				<button class="ctn"> <i class="fa fa-bars"></i></button>
 				<div class="options">
 					<a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
@@ -102,7 +99,14 @@ function Project() {
 					<h3 class="project-title">{projectInfo.project?projectInfo.project[0].title:"Loading.."}</h3>
 					<h4 class="project-category"> {projectInfo.project?projectInfo.project[0].categoryOne:"Loading.."} {projectInfo.project?projectInfo.project[0].categoryTwo :"Loading.."}</h4>
 					<p class="project-description">{projectInfo.project?projectInfo.project[0].projectDescription:"Loading.."}</p> 
+					<div>
+						<Link class="btn" style={{marginTop:"20px"}} onClick={() => setModalShow(true)} >Details</Link>
+            			<Applicants show={modalShow} onHide={() => setModalShow(false)} />	
+					</div>
+
+
 				</div>
+
 			</div>
 			<div class="comment-box">
 				<form onSubmit={(e)=>{addReview(e)}} class="comments" style={{display: "flex", flexDirection: "row", position: "Relative", justifyContent: "left", alignItems: "left", padding: "0px 0px"}}>        

@@ -378,7 +378,6 @@ h4 {
     color: transparent;
     animation: text_slider 3s ease forwards;
     animation-delay: 3s;
-
     margin-top: 10px;
 }
 
@@ -2041,8 +2040,10 @@ select{
     outline: none;
     border: none;
     background-color: none;
-    width: 24px;
+    width: 0%;
+    margin-right: 10px;
     height: fit-content;
+    border-radius: var(--radius);
 }
 
 .Modal span{
@@ -2053,6 +2054,7 @@ select{
     outline: none;
     border:none;
     background-color: none;
+
 }
 #contained-modal-title-venter{
     color: #7e27cf;
@@ -2064,12 +2066,13 @@ select{
     margin: 0px;
 }
 .container-box{
+    border-radius: var(--radius);
     margin-top: 20px;
     position: relative;
     text-align: left;
     align-items: right;
     padding: 10px;
-    background-color: #e2e2e29a;
+    background-color: #e2e2e277;
     box-shadow: var(--radius);
     display: flex;
     flex: 1;
@@ -2080,14 +2083,62 @@ select{
     text-align: left;
     justify-content: center;
     width: 100%;
+    display: flex;
+    flex-direction: row;
     height: fit-content;
     padding: 10px;
+
+
+}
+
+.Rows span, .Rows a{
+    font-size: 1rem;
+    text-align: left;
+    padding: 5px 15px;
+    margin: 0px 10px;
+    font-weight: 600;
+    color: #222222;
+    cursor: pointer;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow)
+}
+
+.Rows .btn{
+    margin: 0px;
+    align-items: right;
+    float: right;
+    padding: 2px 15px;
+    margin: 0px 5px;
+}
+
+.Rows .cancel{
+    color: white;
+    background: rgb(238, 61, 61);
+    padding: 2px 15px;
+    font-family: 'Poppins', sans-serif;
+    border: 2.5px solid  rgb(235, 52, 52);
+    outline: none;
+    border-radius: 75px;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: 700;
+    z-index: 2;
+    margin: 0px;
+}
+.Modal .profile-img img{
+
+    width: 32px;
+    padding: 0px;
 }
 .Cols{
     text-align: left;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     height: fit-content;
+}
+.Cols1{
+    width: 40%;
 }
 /* ====================== Key frames for transitions ====================== */
 

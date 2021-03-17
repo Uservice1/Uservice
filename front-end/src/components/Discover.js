@@ -9,7 +9,7 @@ import three from '../styles/images/5.png'
 import four from '../styles/images/4.jpg'
 import graphic from '../styles/images/55.jpg'
 import profile from '../styles/images/profile.svg';
-import Applicants from './applicants';
+
 
 function Discover() {
     const [projects,setProjects] = useState([])
@@ -147,8 +147,6 @@ function Discover() {
                                 <span class="project-reviews" style={{fontSize: ".8rem", color: "gray", fontWeight: "500"}}>&nbsp;<i class="fa fa-eye" style={{color: "#7e27cf", fontSize: "1rem", fontWeight: "600", marginRight: "4px"}}></i>&nbsp;21</span>
                                 <span class="project-likes" style={{fontSize: ".8rem", color: "gray", fontWeight: "500"}}>&nbsp;<i class="fa fa-heart-o" style={{color: "#7e27cf", fontSize: "1rem", fontWeight: "600", marginRight: "4px"}}></i>&nbsp;2.4k</span>
                             </div> */}
-                            <Link class="btn" onClick={() => setModalShow(true)} >Details</Link>
-                            <Applicants show={modalShow} onHide={() => setModalShow(false)} />
                         </Link>
                         
                 </div>
