@@ -62,7 +62,7 @@ const MyProfile = () =>{
             <div class="project">
                             <div class="project-header">
                                 <div class="profile-img">
-                                    <img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" />
+                                    <img src={state.profilePicture?state.profilePicture:profilePic} alt="" class="profile-image" />
                                 </div>
                                 <div class="profile-nav-info">
                                     <h2 class="username">{state?state.userName:"loading.."}</h2>
@@ -107,7 +107,7 @@ const MyProfile = () =>{
             <div class="profile-header">
             
             <div class="profile-img">
-                <img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" width="240" />
+                <img src={state.profilePicture?state.profilePicture:profilePic} alt="" class="profile-image" width="240" />
             </div>
 
             <div class="profile-nav-info">
