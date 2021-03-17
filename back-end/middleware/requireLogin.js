@@ -23,7 +23,6 @@ module.exports = (req,res,next)=>{
         {
             return res.status(401).json({error:"You are not logged in"})
         }
-        console.log("Token Verified, payload : ",payload)
         const {_id} = payload
         let SQL = "SELECT * FROM Users WHERE userName = "+mysql.escape(_id)
         db.query(SQL,(err,result,feilds)=>{

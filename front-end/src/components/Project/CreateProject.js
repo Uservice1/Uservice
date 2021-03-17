@@ -119,7 +119,7 @@ function CreateProject() {
                 <div class="project-post">
                     <form class="post-img">
                         <label for="project-img" class="btn"><i class="fa fa-upload"></i>Upload Image</label>
-                        <input id="project-img" class="project-img" type="file" placeholder="image" style={{visibility: "hidden;", display: "none;"}} onChange={(e)=>{uploadImage(e,e.target.files)}} /> 
+                        <input id="project-img" class="project-img" type="file" placeholder="image" style={{visibility: "hidden;", display: "none;"}} onChange={(e)=>{uploadImage(e,e.target.files)} } /> 
                     </form>
                 </div>
             </div>
@@ -165,40 +165,6 @@ function CreateProject() {
 
     </section>
             
-{/*             <h2>Create Project</h2>
-            <br /><br/>
-            <form>
-                <input placeholder="Title" onChange={(e)=>{setTitle(e.target.value)}}/>
-                <input placeholder="Description" onChange={(e)=>{setDescription(e.target.value)}} />
-                <br />
-            </form>
-
-            
-            <form onSubmit = {(e)=>{submitCategories(e)}}>
-                <input type="checkbox" value="web development" onChange = {(e)=>{addCategories(e)}} />
-                <label for="vehicle1"> Web Development</label><br/>
-
-                <input type="checkbox" value="content creating" onChange = {(e)=>{addCategories(e)}} />
-                <label for="vehicle2"> Content Creating</label><br/>
-
-                <input type="checkbox" value="graphic design" onChange = {(e)=>{addCategories(e)}} />
-                <label for="vehicle3"> Graphic Design</label><br/>
-
-                <input type="checkbox" value="user interface" onChange = {(e)=>{addCategories(e)}} />
-                <label for="vehicle3"> UI/UX</label><br/>
-
-                <input type="checkbox"  value="photography" onChange = {(e)=>{addCategories(e)}} />
-                <label for="vehicle3"> Photography</label><br/><br/>
-
-            </form> 
-
-            <form>
-                <label>Upload Image</label>
-                <input type="file" placeholder="image" onChange={(e)=>{uploadImage(e,e.target.files)}} /> 
-            </form>
-
-            <button onClick={publishProject}>Publish Project</button>
- */}
         </div>
     )
 }

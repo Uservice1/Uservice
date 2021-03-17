@@ -12,7 +12,6 @@ import CreateProject from './components/Project/CreateProject'
 import Discover from './components/Discover'
 import Contact from './components/Contact'
 import Project from './components/Project/Project'
-
 import {reducer,initialState} from './reducers/userReducer'
 
 export const UserContext = createContext()
@@ -86,11 +85,18 @@ function App() {
       <Route exact path="/discover" >
         <Discover />
       </Route>
+
+      <Route exact path="/updateprofile" >
+        <UpdateProfile />
+      </Route>
       
+<<<<<<< HEAD
       <Route path='/project'>
         <Project />
       </Route>
   
+=======
+>>>>>>> 9980aafce3327d60c3edbd3aec18742f62bd3bc4
       </div>
 
       </UserContext.Provider>

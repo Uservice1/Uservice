@@ -59,6 +59,21 @@ router.post('/discoverprojects',requireLogin,(req,res)=>{
     
 })
 
+router.get('/myprojects',(requireLogin),(req,res)=>{
+    console.log("myProjectsApi",req.user.userName)
+    const {userName} = req.user
+
+    let SQL = "SELECT * FROM projects WHERE author = ?"
+    db.query(SQL,userName,(err,projects)=>{
+        if(err)
+            throw err
+        console.log(projects)
+        res.json({projects})
+    })
+
+    
+})
+
 router.post('/getproject',(req,res)=>{
     console.log("getProjectApi: ",req.body)
 

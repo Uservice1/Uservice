@@ -3,6 +3,7 @@ const requireLogin = require('../middleware/requireLogin')
 const router = express.Router()
 const mysql = require('mysql')
 
+
 const db = mysql.createConnection({
     host : "localhost",
     user : "root",
@@ -38,7 +39,22 @@ router.post('/addExpertise',(requireLogin),(req,res)=>{
 
 })
 
-router.post('/userprofile',(req,res)=>{
+router.post('/uploadprofilepic',requireLogin,(req,res)=>{
+    console.log('uploadProfilePicAPI: ', req.body)
+
+    profilePicture = req.body.profilePicture
+    user = req.user.userName
+
+    let SQL = 'UPDATE Users SET profilePicture = ? WHERE userName = ? '
+    db.query(SQL,[profilePicture,user],(err,result)=>{
+        if(err)
+            throw err
+        console.log(result)
+    })
+
+})
+
+router.post('/userprofile',requireLogin,(req,res)=>{
     console.log("userProfileAPI")
 })
 
