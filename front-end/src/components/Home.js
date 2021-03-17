@@ -27,10 +27,13 @@ function Home() {
                 <div class="main-content">
                     <h1>Get our best services with </h1>
                     <h1>Professionals </h1>
+                    <div class="buttons">
                     <Link to="./Discover" type="button" class="ctn"> Photographers</Link>          
                     <Link to="./Discover" type="button" class="ctn"> Art & Illustrations</Link>          
                     <Link to="./Discover" type="button" class="ctn"> Graphic Designer </Link>        
-                    <Link to="./Discover" type="button" class="ctn"> Developer</Link>           
+                    <Link to="./Discover" type="button" class="ctn"> Developer</Link>    
+                    </div>
+       
                 </div>
             </div>
             <div class="slide">
@@ -38,7 +41,7 @@ function Home() {
                 <div class="main-content">
                     <h1>Discover best Projects and </h1>
                     <h1>Portfolios </h1>
-                    <Link to="./Discover" type="button" class="ctn"> Discover</Link>                     
+                    <div class="buttons"><Link to="./Discover" type="button" class="ctn"> Discover</Link> </div>                  
                 </div>
             </div>
             <div class="slide">
@@ -46,7 +49,8 @@ function Home() {
                 <div class="main-content">
                     <h1>Meet the Skilled and </h1>
                     <h1> Creative</h1>
-                    <Link to="./Discover" type="button" class="ctn"> Projects</Link>                    
+                    <div class="buttons"><Link to="./Discover" type="button" class="ctn"> Projects</Link> </div>
+                                       
                 </div>
             </div>
             <div class="slide">
@@ -54,17 +58,19 @@ function Home() {
                 <div class="main-content">
                     <h1>Get our best services with </h1>
                     <h1>Professionals </h1>   
+                    <div class="buttons">
                     <Link to="./Discover" type="button" class="ctn"> Photographers</Link>          
                     <Link to="./Discover" type="button" class="ctn"> Art & Illustrations</Link>          
                     <Link to="./Discover" type="button" class="ctn"> Graphic Designer </Link>        
-                    <Link to="./Discover" type="button" class="ctn"> Developer</Link>         
+                    <Link to="./Discover" type="button" class="ctn"> Developer</Link>    
+                    </div>        
                 </div>
 
             </div>
         </div>
     </section>
 
-    <Searchbar></Searchbar>
+{/*     <Searchbar></Searchbar> */}
 
     
     <div class="categories">
@@ -101,24 +107,24 @@ function Home() {
             </div>
             <div class="service-bot">
                 <div class="service-icons">
-                    <Link to="/discover.html"><img id="icon1" src={photography}/></Link>
+                    <Link to="./Discover"><img id="icon1" src={photography}/></Link>
                     <h3>Photography</h3>
   
                  </div>
                 <div class="service-icons">
-                    <Link to="./discover.html"><img id="icon" src={graphic} /></Link>
+                    <Link to="./Discover"><img id="icon" src={graphic} /></Link>
                     <h3>Graphic Desgin</h3>
 
                 </div>
             </div>
             <div class="service-bot">
                 <div class="service-icons">
-                    <Link to="./discover.html"><img id="icon" src={art} /></Link>
+                    <Link to="./Discover"><img id="icon" src={art} /></Link>
                     <h3>Art & Illustrations</h3>
   
                  </div>
                 <div class="service-icons">
-                    <Link to="./discover.html"><img id="icon1" src={develope} /></Link>
+                    <Link to="./Discover"><img id="icon1" src={develope} /></Link>
                     <h3>Software Developements</h3>
 
                 </div>
@@ -211,7 +217,6 @@ function Home() {
 
         </div>
     </footer>
-
 
     <div class="foot">
         <p>All  &copy; USERVICE  |  Designed & Developed by Vishal Rathore, Usman Hussain & Hussain Zohair</p>

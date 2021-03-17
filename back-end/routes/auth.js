@@ -17,16 +17,12 @@ let transporter = nodemailer.createTransport({
     },
   });
 
-  
-
-
-const db = mysql.createConnection({
+  const db = mysql.createConnection({
     host : "localhost",
     user : "root",
     password : "usman1234",
-    database : "myDB"
+    database : "Uservice"
 })
-
 
 router.post('/signin',(req,res)=>{
 

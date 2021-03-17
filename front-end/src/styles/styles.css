@@ -325,8 +325,17 @@ h4 {
     justify-content: flex-start;
 }
 
-#main .main-content .buttons{
-    display: block;
+#main .buttons{
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+}
+
+#main .buttons .ctn{
+    margin: 10px;
+    display: flex;
 }
 
 #main img{
@@ -720,19 +729,11 @@ form.signup-form {
     opacity: 100;
 }
 
-.title {
-    font-size: 2.5rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
 .input-fields {
     max-width: 300px;
     width: 100%;
     height: 30px;
-    margin: 10px auto;
+    margin: 10px 50px;
     border: none;
     outline: none;
     border-radius: 75px;
@@ -1604,13 +1605,117 @@ select{
     margin-inline-start: 2px;
 }
 
-#settings .settings-form{
-    align-items: left;
+#settings-form{
+    position: relative; 
+    height:100%; 
+    padding: 25px 50px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 70px 40px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#settings-form .setting-inputs{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    padding: 0%;
+}
+
+#settings-form .setting-inputs form{
+    margin: 0%;
+    padding: 0%;
+}
+
+#settings-form .setting-inputs .left_side{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     height: 100%;
+    width: 35%;
+    overflow: hidden;
+    padding: 0%;
+    margin: auto;
+   
+}
+
+#settings-form .setting-inputs .profile-img{
+    border-radius: 0%;
+}
+
+#settings-form .setting-inputs .right_side{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 65%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    overflow:visible;
+}
+
+#settings-form .setting-inputs .right_side .input-fields input, select{
+    width: 340px;
+    height: 24pt;
+    padding: 2px 20px;
+    overflow: visible;
+}
+
+#settings-form .setting-inputs .right_side .input-fields textarea{
+    padding: 10px 20px;
+    overflow: visible;
+    width: 340px;
+    max-width: 340px;
+}
+
+#settings-form .setting-inputs .check{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 20%;
+    cursor: pointer;
+    text-align: right;
+}
+
+#settings-form .setting-inputs .check input{
+
+    margin: 0%;
+    padding: 0%;
+
+}
+
+#settings-form .setting-inputs  .check p{
+    font-size: 10pt;
+    margin: 0%;
+    padding: 0%;
+    letter-spacing:0;
+    text-align: right;
+
+}
+
+#settings-form button{
+    display: flex;
     position: relative;
+    margin-top: 10px;
+    justify-content: right;
+    align-items: right;
+    text-align: right;
+    position: relative;
+    margin-left: 50%;
 }
 
 .categories .row {
@@ -1779,8 +1884,7 @@ select{
 }
 
 .posts .project{
-    width:100%;
-    max-width: auto;
+    width:fit-content;
     height: 100%;
     align-items: left;
     text-align: left;
@@ -1788,7 +1892,7 @@ select{
 
 .posts .project-post .project-img img{ 
     width: 100%;
-    height: 50%;
+    height: 100%;
     margin-right: 0px;
     z-index: -2;
 

@@ -129,7 +129,7 @@ function CreateProject() {
                 <form onSubmit = {(e)=>{submitCategories(e)}}>
                     <div class="check-boxes">
                     <div class="check">
-                        <input class="check-box" type="checkbox" value="web development" onChange = {(e)=>{addCategories(e)}} />
+                        <input class="check-box " type="checkbox" value="web development" onChange = {(e)=>{addCategories(e)}} />
                         <label for="vehicle1"> Web Development</label><br/>
                     </div>
     
