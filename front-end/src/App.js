@@ -90,13 +90,10 @@ function App() {
         <UpdateProfile />
       </Route>
       
-<<<<<<< HEAD
       <Route path='/project'>
         <Project />
       </Route>
   
-=======
->>>>>>> 9980aafce3327d60c3edbd3aec18742f62bd3bc4
       </div>
 
       </UserContext.Provider>
