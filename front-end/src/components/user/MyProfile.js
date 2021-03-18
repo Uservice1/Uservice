@@ -113,11 +113,11 @@ const MyProfile = () =>{
             <div class="profile-nav-info">
                 <h2 class="username">{state?state.userName:"Loading.."}</h2>
                 <div class="address-info">
-                    <p class="state">Karachi,</p>
-                    <span class="country">Pakistan</span>
+                    <p class="state"></p>
+                    <span class="country"></span>
                 </div>
                 <div class="profile-side">
-                    <p class="user-bio">Lorem ipsum dolor sit amet consectetur, id ut voluptatibus illum dolores.</p>
+                    <p class="user-bio"></p>
                     <input class="input-fields" placeholder="Add Expertise.." onChange={(e)=>{setSkills(e.target.value)}}/>
                     <button class="ctn" onClick={addExptertise}>Add</button>
                 </div>
