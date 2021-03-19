@@ -8,7 +8,6 @@ const db = mysql.createConnection({
     password : "usman1234",
     database : "Uservice"
 })
-
 router.post('/contact',(req,res)=>{
     console.log('contactApi',req.body)
     const message=req.body

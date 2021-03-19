@@ -89,7 +89,7 @@ function App() {
       <Route exact path="/updateprofile" >
         <UpdateProfile />
       </Route>
-      
+
       <Route path='/project'>
         <Project />
       </Route>

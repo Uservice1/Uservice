@@ -71,11 +71,11 @@ function UpdateProfile() {
                             <img src={state&&state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" width="240" />
                         </div>
                             <label for="profile-img" class="btn"><i class="fa fa-upload"></i>Upload picture</label>
+                            <input class="profile-img" type="file" style={{visibility: "hidden", display: "none"}} id="profile-img" />
                             <input class="profile-img" type="file" style={{visibility: "hidden", display: "none"}} id="profile-img" onChange={ (e)=>{uploadImage(e,e.target.files)} } />
                             
 
                     </div>
-                
                     <div class="right_side">
                         <div class="input-fields">
                             <i class="fas fa-user"></i>
@@ -343,7 +343,6 @@ function UpdateProfile() {
                         </div>
 
                     </div>
-
                 </div>
                 <button class="btn" type="button" value="submit">Save changes</button>
             </form>

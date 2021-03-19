@@ -131,7 +131,7 @@ const MyProfile = () =>{
                     <span class="alert-message">1</span>
                 </div>
                 <div class="settings">
-                    <a href="/updateprofile"><i class="fa fa-cog"></i></a>
+                    <Link to="/UpdateProfile"><i class="fa fa-cog"></i></Link>
                 </div>
             </div>
 

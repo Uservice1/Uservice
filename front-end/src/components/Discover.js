@@ -9,15 +9,15 @@ import three from '../styles/images/5.png'
 import four from '../styles/images/4.jpg'
 import graphic from '../styles/images/55.jpg'
 import profile from '../styles/images/profile.svg';
-function Discover() {
 
+
+function Discover() {
     const [projects,setProjects] = useState([])
 
     const {state} = useContext(UserContext)
     const user =JSON.parse(localStorage.getItem("user"))
-
+    const [modalShow, setModalShow] = useState(false);
     useEffect(() => {
-
         console.log("Discover: ",user)
         fetch('/discoverprojects',{
             method:"post",
@@ -40,14 +40,12 @@ function Discover() {
     }, [])
 
     const projectList = projects.map((project) =>{
-        return(
-
-            
+        return( 
     <div class="posts">
         <div class="small-container">
             <div class="row">
                 <div class="col-3">
-                            <Link class="project" to={"/project/"+project.projectId}>
+                            <Link class="project"  to={"/project/"+project.projectId} >
                                 <div class="project-post">
                                     <div class="project-img">
                                         <img class="project-img" src={project.projectThumbnail} alt="" width="400px" style={{margin:"0px"}}/>
@@ -61,7 +59,7 @@ function Discover() {
                                         <img src={profile} alt="" class="profile-image" style={{width: "24px", height: "24px"}} />
                                     </div>
                                     <div class="profile-nav-info">
-                                        <h2 class="username" style={{fontSize: "1rem", fontWeight: "500", padding: "none"}}>Vishal Rathore</h2>
+                                        <h2 class="username" style={{fontSize: "1rem", fontWeight: "500", padding: "none"}}>{project.author}</h2>
                                     </div>
                             </div>
 {/*                             <div class="project-ratings" style={{justifyContent: "right", textAlign: "right", alignItems: "right", width: "100%", padding:"2px 2px"}}>
@@ -70,8 +68,9 @@ function Discover() {
                                 <span class="project-likes" style={{fontSize: ".8rem", color: "gray", fontWeight: "500"}}>&nbsp;<i class="fa fa-heart-o" style={{color: "#7e27cf", fontSize: "1rem", fontWeight: "600", marginRight: "4px"}}></i>&nbsp;2.4k</span>
                             </div> */}
                         </Link>
+                        
+                        
                 </div>
-
                 </div>
             </div>
         </div>
@@ -88,7 +87,7 @@ function Discover() {
     return (
         <div>
             <Navbar />
-            <div class="categories">
+{/*             <div class="categories">
         <div class="small-container">
             <div class="row">
                 <div class="col-3">
@@ -109,9 +108,8 @@ function Discover() {
                 </div>
             </div>
         </div>
-    </div>
+    </div> */}
 
-    <div class="line"></div>
     <div class="categories">
                 <div class="small-container">
                     <div class="row">
@@ -127,7 +125,7 @@ function Discover() {
         <div class="small-container">
             <div class="row">
                 <div class="col-3">
-                            <Link class="project" to="/Project">
+                            <Link class="project"  to="/Project" >
                                 <div class="project-post">
                                     <div class="project-img">
                                         <img class="project-img" src={graphic} alt="" width="400px" style={{margin:"0px"}}/>
@@ -150,13 +148,14 @@ function Discover() {
                                 <span class="project-likes" style={{fontSize: ".8rem", color: "gray", fontWeight: "500"}}>&nbsp;<i class="fa fa-heart-o" style={{color: "#7e27cf", fontSize: "1rem", fontWeight: "600", marginRight: "4px"}}></i>&nbsp;2.4k</span>
                             </div> */}
                         </Link>
+                        
                 </div>
 
                 </div>
             </div>
         </div>
 
-    <div class="foot">
+    <div class="foot" style={{position:"absolute", top:"610px", width:"100%"}}>
         <p>All &copy; USERVICE | Designed & Developed by Vishal Rathore, Usman Hussain & Hussain Zohair</p>
 
     </div>

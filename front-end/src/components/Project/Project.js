@@ -4,10 +4,11 @@ import Pic1 from '../../styles/images/2.jpg'
 import {useParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import {UserContext} from '../../App'
-import Navbar from '../Navbar'
-
+import Applicants from '../applicants';
+import NavBar from '../Navbar'
 
 function Project() {
+	
 	const {state,dispatch} = useContext(UserContext)
 
 
@@ -49,18 +50,16 @@ function Project() {
 
     return (
         <div>
-
-			<Navbar />
-            
+            <NavBar />
             <section id="project" style={{width: "100%", height: "100%", padding: "70px 10px"}}>
 
 		<div class="project">
 			<div class="project-header">
 				<div class="profile-img">
-					<img src={ProfilePic} alt="" class="profile-image" />
+					<img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" />
 				</div>
 				<div class="profile-nav-info">
-					<Link to="/userprofile"><h2 class="username">{projectInfo.project?projectInfo.project[0].author:"Loading.."}</h2></Link>
+					<Link to="/myprofile"><h2 class="username">{projectInfo.project?projectInfo.project[0].author:"Loading.."}</h2></Link>
 					<div class="address-info">
 						<span class="state">Karachi,</span>
 						<span class="country">Pakistan</span>
@@ -77,8 +76,8 @@ function Project() {
 				
 			</div>
 			<div class="project-date" style={{position: "relative", padding: "2px 2px"}}>
-				<span class="day">Sunday &nbsp;</span>
-				<span class="date"> Oct 21, 2020</span>
+				{/* <span class="day">Sunday &nbsp;</span>
+				<span class="date"> Oct 21, 2020</span> */}
 			</div>
 
 			<div class="project-post">

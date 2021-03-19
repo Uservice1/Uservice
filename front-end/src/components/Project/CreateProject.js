@@ -7,7 +7,7 @@ import Navbar from '../Navbar'
 
 function CreateProject() {
 
-
+    const history = useHistory()
     const [categories,setCategories] = useState([])
 
     const [title,setTitle] = useState('')
@@ -47,6 +47,7 @@ function CreateProject() {
         .then((res)=>{
             console.log(res)
         })
+        history.push('/myprofile')
     }   
 
     useEffect(() => {
@@ -107,11 +108,11 @@ function CreateProject() {
                     <form>
                         <div class="input-fields">
                             <i class="fa fa-header"></i>
-                            <input placeholder="Title" type="text"  onChange={(e)=>{setTitle(e.target.value)}} />
+                            <input placeholder="Project Title" type="text"  onChange={(e)=>{setTitle(e.target.value)}} />
                         </div>
                         <div class="input-fields">
                             <i class="fas fas fa-pen"></i>
-                            <textarea placeholder="Description" type="text" onChange={(e)=>{setDescription(e.target.value)}} ></textarea> 
+                            <textarea placeholder="Explain your project, and the required skills you want" type="text" onChange={(e)=>{setDescription(e.target.value)}} ></textarea> 
                         </div>
                     </form>
                 </div>

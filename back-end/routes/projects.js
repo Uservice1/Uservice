@@ -10,7 +10,6 @@ const db = mysql.createConnection({
     database : "Uservice"
 })
 
-
 router.post('/publishproject',(requireLogin),(req,res)=>{
     console.log("PublishProjectAPI: ",req.body)
     
