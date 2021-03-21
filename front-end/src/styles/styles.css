@@ -2520,3 +2520,17 @@ select{
     }
     
 }
+
+/* ====================== Key frames for transitions ====================== */
+
+.error-toast{
+    background-color: #FF5733;
+    border-radius: 10px;
+    top:100px
+}
+
+.success-toast{
+    background-color: #30CD25;
+    border-radius: 10px;
+    top:100px
+}

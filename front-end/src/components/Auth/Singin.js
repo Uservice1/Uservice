@@ -5,8 +5,7 @@ import  '../../styles/styles.css'
 import logo1 from '../../styles/images/logo1.png'
 import login from '../../styles/images/login.svg'
 import Navbar from '../Navbar'
-
-
+import M from 'materialize-css';
 
 function Signin() {
 
@@ -31,12 +30,14 @@ function Signin() {
     .then((res)=>res.json())
     .then((res)=>{
       if(res.error)
-      {
+      { 
+        M.toast({html: res.error,classes: 'error-toast',displayLength:'3000'})
         console.log("error: ",res.error)
       }
       else
       {
         console.log(res)
+        M.toast({html: res.message,classes: 'success-toast',displayLength:'3000'})
         localStorage.setItem('jwt',res.token)
         localStorage.setItem('user',JSON.stringify(res.user))
         dispatch({type:"USER",payload:res.user})
@@ -54,7 +55,7 @@ function Signin() {
     <div className="Signin">
       
 
-    <Navbar />
+    {/* <Navbar /> */}
 
     <div class="sign-container">
         <div class="form-container">
