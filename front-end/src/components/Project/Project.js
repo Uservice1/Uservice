@@ -11,7 +11,7 @@ function Project() {
 	
 	const {state,dispatch} = useContext(UserContext)
 
-
+	const [modalShow, setModalShow] = useState(false);
 	const [projectInfo, setprojectInfo] = useState({})
 	const [projectReview,setProjectReview] = useState(['Great Project'])
 	const {id} = useParams();
@@ -71,6 +71,8 @@ function Project() {
 				<div class="options">
 					<a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
 					<a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
+					<button className="btn" variant="primary" onClick={() => setModalShow(true)}>Details</button>
+					<Applicants show={modalShow} onHide={() => setModalShow(false)} />
 				</div>
 				
 				
@@ -78,6 +80,8 @@ function Project() {
 			<div class="project-date" style={{position: "relative", padding: "2px 2px"}}>
 				{/* <span class="day">Sunday &nbsp;</span>
 				<span class="date"> Oct 21, 2020</span> */}
+
+
 			</div>
 
 			<div class="project-post">
@@ -101,6 +105,8 @@ function Project() {
 					<h3 class="project-title">{projectInfo.project?projectInfo.project[0].title:"Loading.."}</h3>
 					<h4 class="project-category"> {projectInfo.project?projectInfo.project[0].categoryOne:"Loading.."} {projectInfo.project?projectInfo.project[0].categoryTwo :"Loading.."}</h4>
 					<p class="project-description">{projectInfo.project?projectInfo.project[0].projectDescription:"Loading.."}</p> 
+					
+					
 				</div>
 			</div>
 			<div class="comment-box">
@@ -108,14 +114,20 @@ function Project() {
 					<input type="text" placeholder="Your Reviews..." />
 					<button class="btn" style={{display: "inline-block", width: "48px", display: "flex", background: "none", border: "none", padding: "0px 0px", margin: "0px 0px"}}><i class="fa fa-comment"></i></button>
 				</form>
-				<p>{projectReview}</p>
+				<div className="Reviews" style={{padding:"10px", position:"relative", display:"flex", justifyContent:"flex-start", alignItems:"right"}}>
+				<div class="profile-img" style={{height:"14px", display:"flex" }}>
+					<img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" />
+				</div>
+					<p>{projectReview}</p>
+				</div>
+				
 			</div>
 
 		</div>
 
 	</section>
 
-        </div>
+    </div>
     )
 }
 

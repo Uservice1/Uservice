@@ -2047,6 +2047,7 @@ select{
     margin-right: 10px;
     height: fit-content;
     border-radius: var(--radius);
+    cursor: pointer;
 }
 
 .Modal span{
@@ -2056,6 +2057,7 @@ select{
     font-weight: 500;
     outline: none;
     border:none;
+    cursor: pointer;
     background-color: none;
 
 }

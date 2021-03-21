@@ -115,8 +115,8 @@ const MyProfile = () =>{
             <div class="profile-nav-info">
                 <h2 class="username">{state?state.userName:"Loading.."}</h2>
                 <div class="address-info">
-                    <p class="state">Karachi,</p>
-                    <span class="country">Pakistan</span>
+                    <p class="state"></p>
+                    <span class="country"></span>
                 </div>
                 <div class="profile-side">
                     <p class="user-bio">{state.description?state.description:"Update your description..."}</p>
