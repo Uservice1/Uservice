@@ -336,23 +336,12 @@ function UpdateProfile() {
                             <i class="fas fa-city"></i>
                             <input class="state" type="text" placeholder="*state" required />
                         </div>
-                        <div class="input-fields">
-                            <i class="fas fa-lock"></i>
-                            <input class="password" type="password" placeholder="*Password" required />
-                        </div>
-                        <div class="input-fields">
-                            <i class="fas fa-lock"></i>
-                            <input class="retype" type="password" placeholder="*Retype Password" required />
-                        </div>
-                        <div class="input-fields">
-                            <i class="fas fa-info-circle"></i>
-                            <textarea class="bio" placeholder="*Bio " required></textarea>
-                        </div>
                         
-                        <div class="check">
-                                <input class="check-box " type="checkbox" value="web development"/>
-                                <p for="check-box">&nbsp;I accept that all infomation is valid and legal in term of Privacy Policy of Uservice.</p>
-                            </div>
+                        <div class="input-fields"  style={{height:"500px"}} >
+                            <i class="fas fa-info-circle"></i>
+                            <input placeholder="Tell us a little bit about yourself, your skills, area of interests and hobbies.. (Maximum 300 words)"  style={{height:"250px"}}/>
+                        </div>
+
                     </div>
                 </div>
                 <button class="btn" type="button" value="submit">Save changes</button>

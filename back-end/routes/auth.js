@@ -70,7 +70,7 @@ router.post('/signup',(req,res)=>{
     {
         let SQL = "SELECT * FROM Users WHERE email = "+ mysql.escape(req.body.email)
         db.query(SQL,(err,result,feilds)=>{
-            if(!result[0])
+            if(result[0])
             {   
                 res.json({error:"User Already Exists"})
             }

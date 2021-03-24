@@ -1,5 +1,5 @@
 import {useEffect,createContext,useReducer} from 'react'
-import { Route, useHistory} from 'react-router-dom'
+import { Route, Router, useHistory} from 'react-router-dom'
 
 import Signup from './components/Auth/Signup'
 import Signin from './components/Auth/Singin'
@@ -89,11 +89,10 @@ function App() {
       <Route exact path="/updateprofile" >
         <UpdateProfile />
       </Route>
-      
+
       <Route path='/project'>
         <Project />
       </Route>
-  
       </div>
 
       </UserContext.Provider>

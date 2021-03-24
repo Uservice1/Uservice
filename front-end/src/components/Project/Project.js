@@ -1,17 +1,21 @@
-import {useEffect,useState} from 'react'
+import {useEffect,useState,useContext} from 'react'
 import ProfilePic from '../../styles/images/profile.svg'
 import Pic1 from '../../styles/images/2.jpg'
 import {useParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import {UserContext} from '../../App'
 import Applicants from '../applicants';
-import Navbar from '../Navbar'
+import NavBar from '../Navbar'
 
 function Project() {
+	
+	const {state,dispatch} = useContext(UserContext)
 
+	const [modalShow, setModalShow] = useState(false);
 	const [projectInfo, setprojectInfo] = useState({})
 	const [projectReview,setProjectReview] = useState(['Great Project'])
 	const {id} = useParams();
-	const [modalShow, setModalShow] = useState(false);
+
 	const addReview = (e)=>{
 		e.preventDefault()
 		projectReview.push(e.target.value)
@@ -46,17 +50,16 @@ function Project() {
 
     return (
         <div>
-         <Navbar></Navbar>   
-    <section id="project" style={{width: "100%", height: "100%", padding: "70px 10px"}}>
+            <NavBar />
+            <section id="project" style={{width: "100%", height: "100%", padding: "70px 10px"}}>
 
-
-		<div class="project"style={{width: "100%", height: "100%", minHeight:"350px"}}>
+		<div class="project">
 			<div class="project-header">
 				<div class="profile-img">
-					<img src={ProfilePic} alt="" class="profile-image" />
+					<img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" />
 				</div>
 				<div class="profile-nav-info">
-					<Link to="/userprofile"><h2 class="username">{projectInfo.project?projectInfo.project[0].author:"Loading.."}</h2></Link>
+					<Link to="/myprofile"><h2 class="username">{projectInfo.project?projectInfo.project[0].author:"Loading.."}</h2></Link>
 					<div class="address-info">
 						<span class="state">Karachi,</span>
 						<span class="country">Pakistan</span>
@@ -64,18 +67,21 @@ function Project() {
 				</div>
 			</div>
 			<div class="project-settings">
-
 				<button class="ctn"> <i class="fa fa-bars"></i></button>
 				<div class="options">
 					<a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
 					<a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
+					<button className="btn" variant="primary" onClick={() => setModalShow(true)}>Details</button>
+					<Applicants show={modalShow} onHide={() => setModalShow(false)} />
 				</div>
 				
 				
 			</div>
 			<div class="project-date" style={{position: "relative", padding: "2px 2px"}}>
-				<span class="day">Sunday &nbsp;</span>
-				<span class="date"> Oct 21, 2020</span>
+				{/* <span class="day">Sunday &nbsp;</span>
+				<span class="date"> Oct 21, 2020</span> */}
+
+
 			</div>
 
 			<div class="project-post">
@@ -99,28 +105,29 @@ function Project() {
 					<h3 class="project-title">{projectInfo.project?projectInfo.project[0].title:"Loading.."}</h3>
 					<h4 class="project-category"> {projectInfo.project?projectInfo.project[0].categoryOne:"Loading.."} {projectInfo.project?projectInfo.project[0].categoryTwo :"Loading.."}</h4>
 					<p class="project-description">{projectInfo.project?projectInfo.project[0].projectDescription:"Loading.."}</p> 
-					<div>
-						<Link class="btn" style={{marginTop:"20px"}} onClick={() => setModalShow(true)} >Details</Link>
-            			<Applicants show={modalShow} onHide={() => setModalShow(false)} />	
-					</div>
-
-
+					
+					
 				</div>
-
 			</div>
 			<div class="comment-box">
 				<form onSubmit={(e)=>{addReview(e)}} class="comments" style={{display: "flex", flexDirection: "row", position: "Relative", justifyContent: "left", alignItems: "left", padding: "0px 0px"}}>        
 					<input type="text" placeholder="Your Reviews..." />
 					<button class="btn" style={{display: "inline-block", width: "48px", display: "flex", background: "none", border: "none", padding: "0px 0px", margin: "0px 0px"}}><i class="fa fa-comment"></i></button>
 				</form>
-				<p>{projectReview}</p>
+				<div className="Reviews" style={{padding:"10px", position:"relative", display:"flex", justifyContent:"flex-start", alignItems:"right"}}>
+				<div class="profile-img" style={{height:"14px", display:"flex" }}>
+					<img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" />
+				</div>
+					<p>{projectReview}</p>
+				</div>
+				
 			</div>
 
 		</div>
 
 	</section>
 
-        </div>
+    </div>
     )
 }
 

@@ -59,7 +59,7 @@ function Discover() {
                                         <img src={profile} alt="" class="profile-image" style={{width: "24px", height: "24px"}} />
                                     </div>
                                     <div class="profile-nav-info">
-                                        <h2 class="username" style={{fontSize: "1rem", fontWeight: "500", padding: "none"}}>Vishal Rathore</h2>
+                                        <h2 class="username" style={{fontSize: "1rem", fontWeight: "500", padding: "none"}}>{project.author}</h2>
                                     </div>
                             </div>
 {/*                             <div class="project-ratings" style={{justifyContent: "right", textAlign: "right", alignItems: "right", width: "100%", padding:"2px 2px"}}>

@@ -1452,6 +1452,7 @@ select{
 #profile .project-post {
     display: flex;
     width: 100%;
+    min-width: 240px;
     flex-direction: row;
     align-items: left;
     text-align: left;
@@ -1874,6 +1875,8 @@ select{
     margin-bottom: 10px;
     max-width: 80%;
     max-height: 100%;
+    min-width: 280px;
+    min-height: 180px;
 }
 
 .posts .col-3 .project .project-post p{
@@ -2044,6 +2047,7 @@ select{
     margin-right: 10px;
     height: fit-content;
     border-radius: var(--radius);
+    cursor: pointer;
 }
 
 .Modal span{
@@ -2053,6 +2057,7 @@ select{
     font-weight: 500;
     outline: none;
     border:none;
+    cursor: pointer;
     background-color: none;
 
 }
@@ -2514,4 +2519,18 @@ select{
         width: 100%;
     }
     
+}
+
+/* ====================== Key frames for transitions ====================== */
+
+.error-toast{
+    background-color: #FF5733;
+    border-radius: 10px;
+    top:100px
+}
+
+.success-toast{
+    background-color: #30CD25;
+    border-radius: 10px;
+    top:100px
 }

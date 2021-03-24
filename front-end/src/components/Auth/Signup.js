@@ -5,6 +5,7 @@ import logo1 from '../../styles/images/logo1.png'
 import joinus from '../../styles/images/joinus.svg'
 import {Link} from 'react-router-dom'
 import Navbar from '../Navbar'
+import M from 'materialize-css';
 
 function Signup() {
 
@@ -34,9 +35,13 @@ function Signup() {
     .then((res)=>res.json())
     .then((res)=>{
       if(res.error)
-        console.log("error: ",res.error)
+        {
+          M.toast({html: res.error,classes: 'error-toast',displayLength:'3000'})
+          console.log("error: ",res.error)
+        }
       else
       {
+        M.toast({html: res.message,classes: 'success-toast',displayLength:'3000'})
         console.log(res)
         history.push('/signin')
       }
@@ -60,7 +65,7 @@ function Signup() {
                         <h2 class="title">Sign Up</h2>
                         <div class="input-fields">
                              <i class="fas fa-user"></i>
-                             <input class="name" type="username" placeholder="*Username" onChange = {(e)=>{setUserName(e.target.value)}}/>
+                             <input class="name" type="text" placeholder="*Username" onChange = {(e)=>{setUserName(e.target.value)}}/>
                         </div>
                         <div class="input-fields">
                              <i class="fas fa-envelope"></i>

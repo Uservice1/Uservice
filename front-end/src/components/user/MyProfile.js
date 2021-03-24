@@ -59,6 +59,7 @@ const MyProfile = () =>{
 
     const projectList = myProjects.map((project)=>{
         return(
+            <Link to={"/project/"+project.projectId}>
             <div class="project">
                             <div class="project-header">
                                 <div class="profile-img">
@@ -95,6 +96,7 @@ const MyProfile = () =>{
                                 </div>
                             </div>
                         </div>
+                </Link>
         )
     })
 
@@ -117,7 +119,7 @@ const MyProfile = () =>{
                     <span class="country"></span>
                 </div>
                 <div class="profile-side">
-                    <p class="user-bio"></p>
+                    <p class="user-bio">{state.description?state.description:"Update your description..."}</p>
                     <input class="input-fields" placeholder="Add Expertise.." onChange={(e)=>{setSkills(e.target.value)}}/>
                     <button class="ctn" onClick={addExptertise}>Add</button>
                 </div>
