@@ -24,7 +24,13 @@ router.post('/publishproject',(requireLogin),(req,res)=>{
         else
         {
             console.log(result)
-            const skills = [[result.insertId,req.body.categories[0]],[result.insertId,req.body.categories[1]],[result.insertId,req.body.categories[2]]]
+            const skills = [
+                [
+                        result.insertId,req.body.categories[0]],
+                        [result.insertId,req.body.categories[1]],
+                        [result.insertId,req.body.categories[2]
+                    ]
+                ]
             let SQL2 = "INSERT INTO project_skills (projectId,skills) VALUES ?"
             db.query(SQL2,[skills],(err,res)=>{
                 if(err)
@@ -83,6 +89,15 @@ router.post('/getproject',(req,res)=>{
         const project = result
         res.json({project})
     })
+})
+
+router.put('/like',requireLogin,(req,res)=>{
+    let SQL = `SELECT * FROM projects WHERE projectId=?`
+    db.query(SQL,req.body.id,(err,result)=>{
+        console.log(result)
+        $push:{likes:req.user.id}
+    })
+
 })
 
 module.exports.router= router

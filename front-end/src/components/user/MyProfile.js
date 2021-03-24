@@ -75,8 +75,8 @@ const MyProfile = () =>{
                             <div class="project-settings">
                                 <button class="ctn"> <i class="fa fa-bars"></i></button>
                                 <div class="options">
-                                    <a class="project-edit" href="#" ><i class="fa fa-edit"></i>Edit</a>
-                                    <a class="project-remove" href="#" ><i class="fa fa-remove"></i>Remove</a>
+                                    <a class="project-edit" href="" ><i class="fa fa-edit"></i>Edit</a>
+                                    <a class="project-remove" href="" ><i class="fa fa-remove"></i>Remove</a>
                                 </div>
                                 
                                 
