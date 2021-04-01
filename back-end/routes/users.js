@@ -2,7 +2,7 @@ const express = require('express')
 const requireLogin = require('../middleware/requireLogin')
 const router = express.Router()
 const mysql = require('mysql')
-
+const uploadfile =require('express-fileupload');
 
 const db = mysql.createConnection({
     host : "localhost",
@@ -56,5 +56,32 @@ router.post('/uploadprofilepic',requireLogin,(req,res)=>{
 router.post('/userprofile',requireLogin,(req,res)=>{
     console.log("userProfileAPI")
 })
+
+
+router.get('/chat', requireLogin,(req,res)=>{
+    console.log("userInfoApi: ",req.user)
+})
+
+
+router.post('/uploads', requireLogin, (req, res)=>{
+    if(req.files === null){
+        return res.status(400).json({ msg: 'No file uploaded..!'});
+    }
+
+    const file = req.files.file;
+    file.mv(`${__dirname}/front-end/public/uploads/${file.name}`, err =>{
+
+        console.log(`${file.name}`)
+        if(err) {
+            console.error(err);
+            return res.status(500).send(err);
+        }
+
+        res.json({
+            fileName: file.name,
+            filePath: `/front-end/public/uploads/${file.name}`
+        });
+    });
+});
 
 module.exports.router=router

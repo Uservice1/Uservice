@@ -5,7 +5,7 @@ import logo1 from '../../styles/images/logo1.png'
 import joinus from '../../styles/images/joinus.svg'
 import {Link} from 'react-router-dom'
 import Navbar from '../Navbar'
-import M from 'materialize-css';
+
 
 function Signup() {
 
@@ -36,12 +36,12 @@ function Signup() {
     .then((res)=>{
       if(res.error)
         {
-          M.toast({html: res.error,classes: 'error-toast',displayLength:'3000'})
+
           console.log("error: ",res.error)
         }
       else
       {
-        M.toast({html: res.message,classes: 'success-toast',displayLength:'3000'})
+
         console.log(res)
         history.push('/signin')
       }

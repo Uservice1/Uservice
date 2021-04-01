@@ -3,7 +3,8 @@ import Navbar from '../Navbar'
 import profilePic from '../../styles/images/profile.svg'
 import {UserContext} from '../../App'
 import {Link} from 'react-router-dom'
-
+import ReactDom from 'react-dom'
+import axios from 'axios'
 const MyProfile = () =>{
 
     const {state,dispatch} = useContext(UserContext)
@@ -11,6 +12,44 @@ const MyProfile = () =>{
     const [skills,setSkills] = useState('')
 
     const [myProjects,setMyProjects] = useState([{}])
+    
+    const [file, setFile] = useState();
+    const [filename, setFilename] = useState();
+
+    const onChange = e =>{
+        setFile(e.target.files[0]);
+        setFilename(e.target.files[0].name);
+    }
+
+    const onSubmit = async e =>{
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try{
+            const res = await axios.post('/uploads', formData, 
+            {
+                method: "post",
+                headers:
+                {
+                    'Content-Type' : 'multipart/form-data'
+                }
+               
+            }
+             
+            );
+            console.log(res);
+        } catch(err){
+            if( err.response.status === 500 ){
+                console.log('Server Error!', err);
+            }
+            else{
+                console.log(err.response.data.msg);
+            }
+        }
+
+    }
+
 
     const addExptertise = (e)=>{
 
@@ -86,9 +125,8 @@ const MyProfile = () =>{
                                 <span class="date">{project.date_published ? project.date_published : null}</span>
                             </div>
                             <div class="project-post">
-
-                                <div class="project-img">
-                                    <img class="project-img" src={project.projectThumbnail} alt="" width="400px" />
+                                <div class="project-img" style={{width:'400px', height:'400px'}}>
+                                    <img class="project-img" src={project.projectThumbnail} alt="" />
                                 </div>
                                 <div class="project-content">
                                     <h3 class="project-title">{project.title}</h3>
@@ -99,6 +137,8 @@ const MyProfile = () =>{
                 </Link>
         )
     })
+
+
 
     return(
         <div>
@@ -119,7 +159,7 @@ const MyProfile = () =>{
                     <span class="country"></span>
                 </div>
                 <div class="profile-side">
-                    <p class="user-bio">{state.description?state.description:"Update your description..."}</p>
+{/*                     <p class="user-bio">{state.description?state.description:"Update your description..."}</p> */}
                     <input class="input-fields" placeholder="Add Expertise.." onChange={(e)=>{setSkills(e.target.value)}}/>
                     <button class="ctn" onClick={addExptertise}>Add</button>
                 </div>
@@ -135,16 +175,26 @@ const MyProfile = () =>{
                 </div>
             </div>
 
-            <label for="resume" class="ctn"><i class="fa fa-upload"></i> Resume</label>
-            <input class="resume" type="file" style={{visibility: "hidden", display: "none"}} id="resume" />
-            <a href="./styles/docs/Resume.pdf"  target="_blank"  data-after="" id="Resume"><button class="ctn"><i class="fa fa-download"></i> Resume</button></a>
+
+ 
+                
+{/*                 <a href="./styles/docs/Resume.pdf"  target="_blank"  data-after="" id="Resume">
+                <button class="btn"><i class="fa fa-download"></i> Resume</button></a> */}
+        
+        
         </div>
 
         <div class="main-bd">
             <div class="left-side">
                 <div class="profile-side">
                     <p class="emial"><i class="fa fa-envelope"></i>{state?state.email:"loading.."}</p>
-                   </div>
+                </div>
+
+                <form  className="uploads" onSubmit={onSubmit}>
+                <label for="resume" class="btn"><i class="fa fa-upload"></i> Resume</label>
+                <input className="resume" type="file" id="resume"  style={{visibility: "hidden", display: "none"}} onChange={onChange}/>
+                <input className="btn" type="submit" />
+                </form>
                 <div class="user-rating">
                     <div class="rating">
                         <h3 class="ratings">0</h3>
@@ -157,9 +207,10 @@ const MyProfile = () =>{
                     <span class="no-users"><h3>0</h3> &nbsp;Reviews</span>
                 </div>
                     <div class="profile-ctn">
-                        <button class="ctn"><i class="fa fa-comment"></i>Chat</button>
-                        <Link to="/createproject" ><button class="ctn"><i class="fa fa-plus"></i>Create</button></Link>
-                    </div>
+                        <button class="btn"><i class="fa fa-comment"></i>Chat</button>
+                        <Link to="/createproject" ><button class="btn"><i class="fa fa-plus"></i>Create</button></Link>
+                </div>
+
             </div>
 
             <div class="right-side">
@@ -181,6 +232,8 @@ const MyProfile = () =>{
             </section>
 
     </div>
+
+
     )
 }
 

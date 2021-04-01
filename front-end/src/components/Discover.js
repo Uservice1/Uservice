@@ -37,7 +37,7 @@ function Discover() {
 
         
         
-    }, [])
+    }, [user])
 
     const projectList = projects.map((project) =>{
         return( 
@@ -87,28 +87,6 @@ function Discover() {
     return (
         <div>
             <Navbar />
-{/*             <div class="categories">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-3">
-                    <Link to="./Discover" class=""><img  src={one} alt=""/><h4>Photography</h4></Link>
-
-                </div>
-                <div class="col-3">
-                    <Link to="./Discover" class=""> <img src={two} alt=""/><h4>Graphic Design</h4></Link>
-                   
-                </div>
-                <div class="col-3">
-                    <Link to="./Discover" class=""><img  src={four} alt=""/><h4>Art & Illustrations</h4></Link>
-                    
-                </div>
-                <div class="col-3">
-                    <Link to="./Discover" class=""> <img src={three} alt=""/><h4>Development</h4></Link>
-
-                </div>
-            </div>
-        </div>
-    </div> */}
 
     <div class="categories">
                 <div class="small-container">

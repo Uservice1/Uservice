@@ -1,5 +1,4 @@
 import react from 'react'
-
 import {Link} from 'react-router-dom'
 import '../styles/styles.css'
 import photography from '../styles/images/photography.svg'
@@ -17,6 +16,7 @@ import Searchbar from './search'
 function Home() {
   return (
     <div className="App">
+        
     
     <Navbar></Navbar>
 
@@ -72,7 +72,8 @@ function Home() {
 
 {/*     <Searchbar></Searchbar> */}
 
-    
+
+
     <div class="categories">
         <div class="small-container">
             <div class="row">
@@ -210,7 +211,7 @@ function Home() {
                         <form action="#" method="POST">
                             <input type="email" name="Email" class="text-input contacts-input" placeholder="*Email" />
                             <textarea name="message" class="text-input contacts-message" placeholder="type here...."></textarea>
-                            <button type="submit" class="ctn"> Send</button>
+                            <button type="submit" class="btn"> Send</button>
                         </form>
                 </div>
             </div>

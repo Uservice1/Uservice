@@ -1301,7 +1301,7 @@ select{
 
 #profile .left-side{
     height: 100%;
-    width: 100%;
+    width: 50%;
     background-color: white;
     border: none;
     box-shadow: var(--shadow);
@@ -2092,8 +2092,6 @@ select{
     flex-direction: row;
     height: fit-content;
     padding: 10px;
-
-
 }
 
 .Rows span, .Rows a{
@@ -2145,6 +2143,108 @@ select{
 .Cols1{
     width: 40%;
 }
+
+.error-toast{
+    background-color: #FF5733;
+    border-radius: 10px;
+    top:100px
+}
+
+.success-toast{
+    background-color: #30CD25;
+    border-radius: 10px;
+    top:100px
+}
+
+#Chat {
+    position: relative; 
+    height:100%; 
+    padding: 15px 30px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 10px 40px;
+    margin-top: 70px;
+    overflow: hidden;
+    min-height: 550px;
+
+}
+
+#Chat .Chat{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    flex: 1;
+    overflow: hidden;
+
+}
+
+#Chat .Chat .chat-list{
+    background-color : #e8e8e8;
+    overflow: auto;
+    width: 360px;
+    padding: 5px 5px;
+    padding-top: 0px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    max-height: 480px;
+    min-height: auto;
+
+}
+
+
+#Chat .Chat .chat-list .chat-icon{
+    margin: 10px;
+    background-color : white;
+    height: 100%;
+    padding: 5px 5px;
+    border-radius: 55px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: left;
+    float: left;
+    cursor: pointer;
+    
+}
+#Chat .Chat .chat-inbox{
+    background-color : #e8e8e8;
+    overflow: auto;
+    width: 60%;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    max-height: 480px;
+    min-height: 480px;
+}
+
+
+
+#Chat .profile-option .notification {
+    display: flex;
+    font-size: 1rem;
+    top: -10px;
+    right: ;
+    position: relative;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    box-shadow: var(--shadow);
+    background: rgb(255, 70, 70);
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+}
 /* ====================== Key frames for transitions ====================== */
 
 
@@ -2182,6 +2282,7 @@ select{
         color: #7e27cf;
     }
 }
+
 
 
 /* ====================== FOR TAB UI RESPONSIVENESS ====================== */
@@ -2465,7 +2566,7 @@ select{
         font-size: 1.5rem;
     }
     #profile .left-side{
-        width: 550px;
+        min-width: 650px;
     }
     #profile .righ-side{
         width: 100%;
@@ -2513,7 +2614,7 @@ select{
         flex-direction: row;
     }
     #profile .left-side{
-        width: 500px;
+        min-width: 500px;
     }
     #profile .righ-side{
         width: 100%;
@@ -2523,14 +2624,3 @@ select{
 
 /* ====================== Key frames for transitions ====================== */
 
-.error-toast{
-    background-color: #FF5733;
-    border-radius: 10px;
-    top:100px
-}
-
-.success-toast{
-    background-color: #30CD25;
-    border-radius: 10px;
-    top:100px
-}

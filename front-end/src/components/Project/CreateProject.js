@@ -112,7 +112,7 @@ function CreateProject() {
                         </div>
                         <div class="input-fields">
                             <i class="fas fas fa-pen"></i>
-                            <textarea placeholder="Explain your project, and the required skills you want" type="text" onChange={(e)=>{setDescription(e.target.value)}} ></textarea> 
+                            <textarea placeholder="Description" type="text" onChange={(e)=>{setDescription(e.target.value)}} ></textarea> 
                         </div>
                     </form>
                 </div>

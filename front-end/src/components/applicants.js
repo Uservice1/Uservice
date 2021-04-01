@@ -19,8 +19,7 @@ function Applicants (params) {
               <Col className="Col" xs={2} md={2}>
                 <span className="count">1</span>                         {/* count */}
               </Col>
-              <Col className="Cols" xs={4} md={4}>
-                  
+              <Col className="Cols" xs={4} md={4}>              
                 <a href="#" className="username">Vishal Rathore</a>   
               </Col>
               <Col className="Cols" xs={4} md={4}>

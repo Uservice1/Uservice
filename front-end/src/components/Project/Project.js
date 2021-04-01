@@ -9,8 +9,7 @@ import NavBar from '../Navbar'
 
 function Project() {
 	
-	const {state,dispatch} = useContext(UserContext)
-
+	const {state,dispatch} = useContext(UserContext);
 	const [modalShow, setModalShow] = useState(false);
 	const [projectInfo, setprojectInfo] = useState({})
 	const [projectReview,setProjectReview] = useState(['Great Project'])
@@ -56,7 +55,7 @@ function Project() {
 		<div class="project">
 			<div class="project-header">
 				<div class="profile-img">
-					<img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" />
+				{/* 	<img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" /> */}
 				</div>
 				<div class="profile-nav-info">
 					<Link to="/myprofile"><h2 class="username">{projectInfo.project?projectInfo.project[0].author:"Loading.."}</h2></Link>
@@ -74,9 +73,8 @@ function Project() {
 					<button className="btn" variant="primary" onClick={() => setModalShow(true)}>Details</button>
 					<Applicants show={modalShow} onHide={() => setModalShow(false)} />
 				</div>
-				
-				
 			</div>
+			
 			<div class="project-date" style={{position: "relative", padding: "2px 2px"}}>
 				{/* <span class="day">Sunday &nbsp;</span>
 				<span class="date"> Oct 21, 2020</span> */}
@@ -112,11 +110,11 @@ function Project() {
 			<div class="comment-box">
 				<form onSubmit={(e)=>{addReview(e)}} class="comments" style={{display: "flex", flexDirection: "row", position: "Relative", justifyContent: "left", alignItems: "left", padding: "0px 0px"}}>        
 					<input type="text" placeholder="Your Reviews..." />
-					<button class="btn" style={{display: "inline-block", width: "48px", display: "flex", background: "none", border: "none", padding: "0px 0px", margin: "0px 0px"}}><i class="fa fa-comment"></i></button>
+					<button class="btn" style={{ width: "48px", display: "flex", background: "none", border: "none", padding: "0px 0px", margin: "0px 0px"}}><i class="fa fa-comment"></i></button>
 				</form>
 				<div className="Reviews" style={{padding:"10px", position:"relative", display:"flex", justifyContent:"flex-start", alignItems:"right"}}>
 				<div class="profile-img" style={{height:"14px", display:"flex" }}>
-					<img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" />
+					{/* <img src={state.profilePicture?state.profilePicture:ProfilePic} alt="" class="profile-image" /> */}
 				</div>
 					<p>{projectReview}</p>
 				</div>

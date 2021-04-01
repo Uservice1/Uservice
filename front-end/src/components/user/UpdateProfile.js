@@ -337,9 +337,9 @@ function UpdateProfile() {
                             <input class="state" type="text" placeholder="*state" required />
                         </div>
                         
-                        <div class="input-fields"  style={{height:"500px"}} >
+                        <div class="input-fields"  style={{height:"380px"}} >
                             <i class="fas fa-info-circle"></i>
-                            <input placeholder="Tell us a little bit about yourself, your skills, area of interests and hobbies.. (Maximum 300 words)"  style={{height:"250px"}}/>
+                            <input placeholder="Tell us more about you!"  style={{height:"250px"}}/>
                         </div>
 
                     </div>
